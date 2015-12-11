@@ -72,13 +72,7 @@ The MIMIC-III critical care database is unique and notable for the following rea
 
 MIMIC-III comprises data associated with patients admitted to critical care units of the Beth Israel Deaconess Medical Center in Boston, Massachusetts, between 2001 and 2012. The data...describe the details after generating table (Table \ref{table:patientpopulation}).
 
-The five most common International Classification of Disease codes across all critical care units were: X, X, X, X, and X. Table \ref{table:icddistribution} gives an indication of how different diseases, as indicated by the primary ICD-9 code, are distributed across the critical care units. 
-
-NB: There are 13 distinct care units in MIMIC-III, so we will need to decide how to incorporate these into Tables 1 and 2: CSICU; SICU; NSICU; NICU; MICU; MSICU; CCU; CTICU; TSICU; NWARD; CVICU; SICU Nursing. \\
-
-FIGURE: Demonstrate the structure of the patient population. \\
-
-FIGURE: ICD9 codes \\
+The five most common International Classification of Diseases, 9th Edition (ICD-9) codes across hospital admissions were: 414.01 ('Coronary atherosclerosis of native coronary artery', 7.1\% of all admissions); 038.9 ('Unspecified septicemia', 4.2\% of all admissions), and 410.71 ('Subendocardial infarction, initial episode of care', 3.6\% of all admissions). Table \ref{table:icddistribution} gives an indication of how the occurrence of diagnosed diseases, as indicated by the primary ICD-9 code, are distributed across the critical care units. 
 
 % \subsection*{Roadmap}
 
@@ -207,7 +201,7 @@ Additionally, a public "MIMIC Code Repository" has been created to encourage res
 
 % Include a nice visualization of the data
 
-MIMIC-III is a relational database consisting of 25 tables. Tables are linked by identifiers which usually have the suffix "ID". For example, SUBJECT\_ID refers to a unique patient, HADM\_ID refers to a unique admission to the hospital, and ICUSTAY\_ID refers to a unique admission to an intensive care unit. 
+MIMIC-III is a relational database consisting of 26 tables. Tables are linked by identifiers which usually have the suffix "ID". For example, SUBJECT\_ID refers to a unique patient, HADM\_ID refers to a unique admission to the hospital, and ICUSTAY\_ID refers to a unique admission to an intensive care unit. 
 
 Charted events such as notes, laboratory tests, and fluid balance are stored in a series of "events" tables. For example the OUTPUTEVENTS table contains all measurements related to output for a given patient, while the LABEVENTS table contains laboratory tests for a patient.
 
@@ -414,30 +408,28 @@ The authors declare no competing financial interests.
 %	Demographics of the database
 \begin{center}
 \begin{table}
-\begin{tabular}{|p{5cm}|c|c|c|c|c|}
+\begin{tabular}{|p{1.8cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|}
     \hline
-    Critical care unit & MICU & SICU & CSRU & CCU & Total \\ 
+    Critical care unit & CCU & CSRU & MICU & NICU & SICU & TSICU & Total \\ 
     \hline
-    Hospital admissions, no. (\% of total admissions) & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    Hospital admissions, no. (\% of total admissions) & 7,258 (12.6\%) & 9,157 (15.8\%) & 19,771 (34.2\%) & 7,992 (13.8\%) & 8,110 (14.0\%) & 5,498 (9.5\%) & N(N\%) \\ 
     \hline
-    Distinct ICU stays, no. (\% of total admissions) & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    Distinct ICU stays, no. (\% of total admissions) & 7,726 (12.6\%) & 9,855 (16.0\%) & 21,088 (34.3\%) & 8,100 (13.2\%) & 8,891 (14.4\%) & 5,872 (9.5\%) & N(N\%) \\ 
     \hline
-    Age, years, mean +- SD & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    Age, years, median +- IQR & 70.1 (58.4-80.5) & 67.6 (57.6-76.7) & 64.9 (51.7-78.2) & 0.0 (0.0-0.0) & 63.6 (51.4-76.5) & 59.8 (42.8-75.6) & N(N\%) \\ 
     \hline
-    Gender, male, \% of unit stays & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    Gender, male, \% of unit stays & 4,203 (57.9\%) & 6,001 (65.5\%) & 10,193 (51.6\%) & 4,310 (53.9\%) & 4,251 (52.4\%) & 3,340 (60.7\%) & N(N\%) \\ 
     \hline
-    ICU length of stay, median days (IQR) & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    ICU length of stay, median days (IQR) & 2.2 (1.2-4.1) & 2.1 (1.2-4.0) &  2.1 (1.2-4.1) & 0.8 (0.1-9.7) & 2.3 (1.3-4.9) & 2.1 (1.2-4.6) & N(N\%) \\ 
     \hline
-    Hospital length of stay, median days (IQR) & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    Hospital length of stay, median days (IQR) & 5.8 (3.1-10.0) & 7.4 (5.2-11.4) & 6.4 (3.7-11.7) & 4.1 (2.3-10.3) & 7.9 (4.4-14.2) & 7.4 (4.1-13.6) & N(N\%) \\
     \hline
-    Mechanical ventilation, no. (\% of unit stays) & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    ICU mortality, percent of unit stays & 685 (8.9\%) & 353 (3.6\%) & 2,222 (10.5\%) & 53 (0.7\%) & 813 (9.1\%) & 493 (8.4\%) & N(N\%) \\ 
     \hline
-    ICU mortality, percent of unit stays & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
-    \hline
-    Hospital mortality, percent of unit stays & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    Hospital mortality, percent of unit stays & 817 (11.3\%) & 424 (4.6\%) & 2,859 (14.5\%) & 64 (0.8\%) &  1,020 (12.6\%) & 629 (11.4\%) & N(N\%) \\ 
     \hline
 \end{tabular}
-\caption{Details of the MIMIC-III patient population by critical care unit. MICU is Medical Intensive Care Unit; SICU is Surgical Intensive Care Unit; CSRU is Cardiac Surgery Recovery Unit; CCU is Coronary Care Unit.}
+\caption{Details of the MIMIC-III patient population by critical care unit. CCU is Coronary Care Unit; CSRU is Cardiac Surgery Recovery Unit; MICU is Medical Intensive Care Unit; NICU is Neonatal Intensive Care Unit; SICU is Surgical Intensive Care Unit; TSICU is Trauma Surgical Intensive Care Unit.}
 \label{table:patientpopulation}
 \end{table}
 \end{center}
@@ -447,49 +439,50 @@ The authors declare no competing financial interests.
 
 \begin{center}
 \begin{table}
-\begin{tabular}{|p{4.5cm}|p{1.6cm}|p{1.6cm}|p{1.6cm}|
-p{1.6cm}|p{1.6cm}|}
+\begin{tabular}{|p{3.8cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|}
     \hline
     Critical care unit & 
-    MICU stays, No. (\% of unit stays) & 
-    SICU stays, No. (\% of unit stays) & 
-    CSRU stays, No. (\% of unit stays) & 
-    CCU stays, No. (\% of unit stays) & 
-    Total stays, No. (\% of unit stays) \\ 
+    CCU stays, No. (\% by unit) & 
+    CSRU stays, No. (\% by unit) &    
+    MICU stays, No. (\% by unit) & 
+    NICU stays, No. (\% by unit) & 
+    SICU stays, No. (\% by unit) & 
+    TSICU stays, No. (\% by unit) & 
+    Total stays, No. (\% by unit) \\ 
     \hline
     Infectious and parasitic diseases, ie, septicemia, other infectious and parasitic diseases, etc (001–139)
-    & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    & 305 (4.3\%) & 72 (0.8\%) & 3,229 (16.7\%) & 1 (0.4\%) & 448 (5.6\%) & 152 (2.8\%) & N(N\%) \\ 
     \hline
     Neoplasms of digestive organs and intrathoracic organs, etc (140–239)
-    & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    & 126 (1.8\%) & 287 (3.2\%) & 1,415 (7.3\%) & 0 (0.0\%) & 1,225 (15.4\%) & 466 (8.6\%) & N(N\%) \\ 
     \hline
     Endocrine, nutritional, metabolic, and immunity (240–279) 
-    & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    & 104 (1.4\%) & 36 (0.4\%) & 986 (5.1\%) & 1 (0.4\%) & 178 (2.2\%) & 54 (1.0\%) & N(N\%) \\ 
     \hline
     Diseases of the circulatory system, ie, ischemic heart diseases, diseases of pulmonary circulation, dysrhythmias, heart failure, cerebrovascular diseases, etc. (390–459) 
-    & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    & 5,131 (71.5\%) & 7,138 (78.7\%) & 2,638 (13.7\%) & 2 (0.7\%) & 2,356 (29.6\%) & 684 (12.6\%) & N(N\%) \\ 
     \hline
     Pulmonary diseases, ie, pneumonia and influenza, chronic obstructive pulmonary disease, etc. (460–519) 
-    & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    & 416 (5.8\%) & 141 (1.6\%) & 3,393 (17.6\%) & 1 (0.4\%) & 390 (4.9\%) & 225 (4.1\%) & N(N\%) \\ 
     \hline
     Diseases of the digestive system (520–579) 
-    & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    & 264 (3.7\%) & 157 (1.7\%) & 3,046 (15.8\%) & 1(0.4\%) & 1,193 (15.0\%) & 440 (8.1\%) & N(N\%) \\ 
     \hline
     Diseases of the genitourinary system, ie, nephritis, nephrotic syndrome, nephrosis, and other diseases of the genitourinary system (580–629) 
-    & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    & 130 (1.8\%) & 14 (0.2\%) & 738 (3.8\%) & 0 (0.0\%) & 101 (1.3\%) & 31 (0.6\%) & N(N\%) \\ 
     \hline
     Trauma (800–959) 
-    & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    & 97 (1.4\%) & 495 (5.5\%) & 480 (2.5\%) & 0 (0.0\%) & 836 (10.5\%) & 2,816 (51.9\%) & N(N\%) \\ 
     \hline
     Poisoning by drugs and biological substances (960–979) 
-    & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    & 47 (0.7\%) & 2 (0.0\%) & 538 (2.8\%) & 0 (0.0\%) & 56 (0.7\%) & 9 (0.2\%) & N(N\%) \\ 
     \hline
-    Other & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    Other & 556 (7.7\%) & 729 (8.0\%) & 2,844 (14.7\%) & 274 (97.8\%) & 1,178 (14.8\%) & 548 (10.1\%) & N(N\%) \\ 
     \hline
-    Total & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
+    Total & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) & N(N\%) \\ 
     \hline
 \end{tabular}
-\caption{Distribution of 9th Edition International Classification of Diseases (ICD-9) codes by critical care unit. MICU is Medical Intensive Care Unit; SICU is Surgical Intensive Care Unit; CSRU is Cardiac Surgery Recovery Unit; CCU is Coronary Care Unit.}
+\caption{Distribution of International Classification of Diseases, 9th Edition (ICD-9) codes by critical care unit. CCU is Coronary Care Unit; CSRU is Cardiac Surgery Recovery Unit; MICU is Medical Intensive Care Unit; NICU is Neonatal Intensive Care Unit; SICU is Surgical Intensive Care Unit; TSICU is Trauma Surgical Intensive Care Unit.}
 \label{table:icddistribution}
 \end{table}
 \end{center}
