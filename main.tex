@@ -70,9 +70,11 @@ The MIMIC-III critical care database is unique and notable for the following rea
 
 \subsection*{Patient characteristics}
 
-MIMIC-III comprises data associated with patients admitted to critical care units of the Beth Israel Deaconess Medical Center in Boston, Massachusetts, between 2001 and 2012. The data...describe the details after generating table (Table \ref{table:patientpopulation}).
+MIMIC-III comprises data associated with approximately 46,520 patients admitted to critical care units of the Beth Israel Deaconess Medical Center in Boston, Massachusetts, between 2001 and 2012. The data covers approximately 58,976 unique hospital admissions and 61,532 unique stays in a critical care unit.
 
-The five most common International Classification of Diseases, 9th Edition (ICD-9) codes across hospital admissions were: 414.01 ('Coronary atherosclerosis of native coronary artery', 7.1\% of all admissions); 038.9 ('Unspecified septicemia', 4.2\% of all admissions), and 410.71 ('Subendocardial infarction, initial episode of care', 3.6\% of all admissions). Table \ref{table:icddistribution} gives an indication of how the occurrence of diagnosed diseases, as indicated by the primary ICD-9 code, are distributed across the critical care units. 
+...describe the details after generating table (Table \ref{table:patientpopulation}).
+
+The five most common International Classification of Diseases, 9th Edition (ICD-9) codes across hospital admissions were: 414.01 ("Coronary atherosclerosis of native coronary artery", 7.1\% of all hospital admissions); 038.9 ("Unspecified septicemia", 4.2\% of all hospital admissions), and 410.71 ("Subendocardial infarction, initial episode of care", 3.6\% of all hospital admissions). Table \ref{table:icddistribution} gives a more detailed indication of how the occurrence of diagnosed diseases, as indicated by the primary ICD-9 code, are distributed across the critical care units. 
 
 % \subsection*{Roadmap}
 
@@ -152,11 +154,15 @@ Approval requires at least a week. Once an application has been approved the res
 %variables or parameters used to generate, test, or process the current dataset. 
 % ------------------------------------ %
 
-The code used to create the MIMIC-III database from raw hospital exports has been made available in a public archive. Prior to opening up the code, the commit history was deleted to avoid sensitive information being inadvertently shared: https://github.com/MIT-LCP/mimic-iii-building 
+% The code used to create the MIMIC-III database from raw hospital exports has been made available in a public archive. Prior to opening up the code, the commit history was deleted to avoid sensitive information being inadvertently shared: https://github.com/MIT-LCP/mimic-iii-building %
 
-The code that underpins the MIMIC-III website and documentation is also openly available and contributions from the research community are encouraged: \\ https://github.com/MIT-LCP/mimic-website 
+
+
+The code that underpins the MIMIC-III website and documentation is openly available and contributions from the research community are encouraged: \\ https://github.com/MIT-LCP/mimic-website 
 
 Additionally, a public "MIMIC Code Repository" has been created to encourage researchers to collaboratively develop and share code used for data processing and analysis: https://github.com/MIT-LCP/mimic-code
+
+An IPython Notebook containing the code used to generate the tables and descriptive statistics included in this paper is available at: https://github.com/MIT-LCP/
 
 % Answer:
 % Deidentification code available at github.com/MIT-lcp/deid
@@ -304,7 +310,7 @@ MIMIC is provided as a collection of comma separated value (CSV) files, along wi
 
 Sharing a dataset such as MIMIC-III carries both a responsibility to address issues with the data, and an expectation from users to provide support. Our laboratory is committed to continuously improving the data and documentation, but resources limit the amount of tailored advice that we can give to the worldwide community of users.
 
-We believe that some of the burden of support must be carried by the community as a whole. We have therefore made the repository used to generate the documentation and website publicly available and we encourage participation in its development. A forum for users to ask and answer MIMIC-III related questions is also due to be released.
+We believe that some of the burden of support must be carried by the community as a whole. We have therefore made the repository used to generate the documentation and website publicly available and we encourage participation in its development. A forum for users to ask and answer MIMIC-III related questions is also provided via the MIMIC website.
 
 % Our hope is that we can provide access while not covering compute costs...
 
@@ -412,21 +418,21 @@ The authors declare no competing financial interests.
     \hline
     Critical care unit & CCU & CSRU & MICU & NICU & SICU & TSICU & Total \\ 
     \hline
-    Hospital admissions, no. (\% of total admissions) & 7,258 (12.6\%) & 9,157 (15.8\%) & 19,771 (34.2\%) & 7,992 (13.8\%) & 8,110 (14.0\%) & 5,498 (9.5\%) & N(N\%) \\ 
+    Hospital admissions, no. (\% of total admissions) & 7,258 (12.6\%) & 9,157 (15.8\%) & 19,771 (34.2\%) & 7,992 (13.8\%) & 8,110 (14.0\%) & 5,498 (9.5\%) & 57,786 (100\%) \\ 
     \hline
-    Distinct ICU stays, no. (\% of total admissions) & 7,726 (12.6\%) & 9,855 (16.0\%) & 21,088 (34.3\%) & 8,100 (13.2\%) & 8,891 (14.4\%) & 5,872 (9.5\%) & N(N\%) \\ 
+    Distinct ICU stays, no. (\% of total admissions) & 7,726 (12.6\%) & 9,855 (16.0\%) & 21,088 (34.3\%) & 8,100 (13.2\%) & 8,891 (14.4\%) & 5,872 (9.5\%) & 61,532 (100\%) \\ 
     \hline
-    Age, years, median +- IQR & 70.1 (58.4-80.5) & 67.6 (57.6-76.7) & 64.9 (51.7-78.2) & 0.0 (0.0-0.0) & 63.6 (51.4-76.5) & 59.8 (42.8-75.6) & N(N\%) \\ 
+    Age, years, median +- IQR & 70.1 (58.4-80.5) & 67.6 (57.6-76.7) & 64.9 (51.7-78.2) & 0.0 (0.0-0.0) & 63.6 (51.4-76.5) & 59.8 (42.8-75.6) & 62.0 (44.3-76.1) \\ 
     \hline
-    Gender, male, \% of unit stays & 4,203 (57.9\%) & 6,001 (65.5\%) & 10,193 (51.6\%) & 4,310 (53.9\%) & 4,251 (52.4\%) & 3,340 (60.7\%) & N(N\%) \\ 
+    Gender, male, \% of unit stays & 4,203 (57.9\%) & 6,001 (65.5\%) & 10,193 (51.6\%) & 4,310 (53.9\%) & 4,251 (52.4\%) & 3,340 (60.7\%) & 32,298 (55.9\%) \\ 
     \hline
-    ICU length of stay, median days (IQR) & 2.2 (1.2-4.1) & 2.1 (1.2-4.0) &  2.1 (1.2-4.1) & 0.8 (0.1-9.7) & 2.3 (1.3-4.9) & 2.1 (1.2-4.6) & N(N\%) \\ 
+    ICU length of stay, median days (IQR) & 2.2 (1.2-4.1) & 2.1 (1.2-4.0) &  2.1 (1.2-4.1) & 0.8 (0.1-9.7) & 2.3 (1.3-4.9) & 2.1 (1.2-4.6) & 2.1 (1.1-4.5) \\ 
     \hline
-    Hospital length of stay, median days (IQR) & 5.8 (3.1-10.0) & 7.4 (5.2-11.4) & 6.4 (3.7-11.7) & 4.1 (2.3-10.3) & 7.9 (4.4-14.2) & 7.4 (4.1-13.6) & N(N\%) \\
+    Hospital length of stay, median days (IQR) & 5.8 (3.1-10.0) & 7.4 (5.2-11.4) & 6.4 (3.7-11.7) & 4.1 (2.3-10.3) & 7.9 (4.4-14.2) & 7.4 (4.1-13.6) & 6.6 (3.8-11.9) \\
     \hline
-    ICU mortality, percent of unit stays & 685 (8.9\%) & 353 (3.6\%) & 2,222 (10.5\%) & 53 (0.7\%) & 813 (9.1\%) & 493 (8.4\%) & N(N\%) \\ 
+    ICU mortality, percent of unit stays & 685 (8.9\%) & 353 (3.6\%) & 2,222 (10.5\%) & 53 (0.7\%) & 813 (9.1\%) & 493 (8.4\%) & 4,619 (7.5\%) \\ 
     \hline
-    Hospital mortality, percent of unit stays & 817 (11.3\%) & 424 (4.6\%) & 2,859 (14.5\%) & 64 (0.8\%) &  1,020 (12.6\%) & 629 (11.4\%) & N(N\%) \\ 
+    Hospital mortality, percent of unit stays & 817 (11.3\%) & 424 (4.6\%) & 2,859 (14.5\%) & 64 (0.8\%) &  1,020 (12.6\%) & 629 (11.4\%) & 5,813 (10.1\%) \\ 
     \hline
 \end{tabular}
 \caption{Details of the MIMIC-III patient population by critical care unit. CCU is Coronary Care Unit; CSRU is Cardiac Surgery Recovery Unit; MICU is Medical Intensive Care Unit; NICU is Neonatal Intensive Care Unit; SICU is Surgical Intensive Care Unit; TSICU is Trauma Surgical Intensive Care Unit.}
