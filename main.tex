@@ -218,8 +218,8 @@ Tables prefixed with “D\_” are dictionaries and provide definitions for iden
 The following tables are used to define and track patient stays:
 
 \begin{itemize}
-  \item PATIENTS: Every unique patient in the database (defines SUBJECT\_ID).
   \item ADMISSIONS: Every unique hospitalization for each patient in the database (defines HADM\_ID).
+  \item PATIENTS: Every unique patient in the database (defines SUBJECT\_ID).
   \item ICUSTAYS: Every unique ICU stay in the database (defines ICUSTAY\_ID).
   \item SERVICES: The clinical service under which a patient is registered.
   \item TRANSFERS: Patient movement from bed to bed within the hospital, including ICU admission and discharge.
@@ -230,29 +230,30 @@ The following tables contain data associated with each patient:
 \begin{itemize}
   \item CALLOUT: Information regarding when a patient was cleared for ICU discharge and when the patient was actually discharged.
   \item CAREGIVERS: Every caregiver who has recorded data in the database (defines CGID).
-  \item CHARTEVENTS: All charted observations for all patients.
-  \item CPTEVENTS: Procedure codes for all procedures done for patients in the ICU.
-  \item DATETIMEEVENTS: All recorded observations which are dates, for example time of dialysis or insertion of lines. These observations have been anonymized.
-  \item DIAGNOSES\_ICD: Hospital assigned diagnoses as classified by the international classification of diseases and related health problems (ICD).
-  \item DRGCODES: Diagnosis Related Groups (DRG) which are used for hospital billing for patient stays.
-  \item INPUTEVENTS\_CV: Intake for patients monitored using the Philips CareVue system.
-  \item INPUTEVENTS\_MV: Intake for patients monitored using the iMDSoft MetaVision system.
+  \item CHARTEVENTS: All charted observations for patients.
+  \item CPTEVENTS: Procedures recorded as Current Procedural Terminology (CPT) codes.
+  \item DATETIMEEVENTS: All recorded observations which are dates, for example time of dialysis or insertion of lines.
+  \item DIAGNOSES\_ICD: Hospital assigned diagnoses, coded using the International Statistical Classification of Diseases and Related Health Problems (ICD) system.
+  \item DRGCODES: Diagnosis Related Groups (DRG), which are used by the hospital for billing purposes.
+  \item INPUTEVENTS\_CV: Intake for patients monitored using the Philips CareVue system while in the ICU.
+  \item INPUTEVENTS\_MV: Intake for patients monitored using the iMDSoft MetaVision system while in the ICU.
   \item OUTPUTEVENTS: Output information for patients while in the ICU.
   \item LABEVENTS: Laboratory measurements for patients both within the hospital and in outpatient clinics following hospital discharge.
   \item MICROBIOLOGYEVENTS: Microbiology measurements and antibiotic sensitivities from the hospital database.
-  \item NOTEEVENTS: De-identified notes, including nursing and physician notes, ECG reports, imaging reports, and discharge summaries.
+  \item NOTEEVENTS: Deidentified notes, including nursing and physician notes, ECG reports, imaging reports, and discharge summaries.
   \item PRESCRIPTIONS: Medications ordered for a given patient.
-  \item PROCEDURES\_ICD: Patient procedures performed as coded by the international classification of diseases and related health problems (ICD) system.
+  \item PROCEDUREEVENTS\_MV: Patient procedures for the subset of patients who were monitored in the ICU using the iMDSoft MetaVision system.
+  \item PROCEDURES\_ICD: Patient procedures, coded using the International Statistical Classification of Diseases and Related Health Problems (ICD) system.
 \end{itemize}
 
 The following tables are dictionaries:
 
 \begin{itemize}
   \item D\_CPT: High level dictionary of Current Procedural Terminology (CPT) codes.
-  \item D\_ICD\_DIAGNOSES: Brief description for each ICD code related to a diagnosis.
-  \item D\_ICD\_PROCEDURES: Brief description for each ICD code related to a procedure.
-  \item D\_ITEMS: Describes each ITEMID in the ICU database.
-  \item D\_LABITEMS: Describes each ITEMID in the laboratory database.
+  \item D\_ICD\_DIAGNOSES: Dictionary of International Statistical Classification of Diseases and Related Health Problems (ICD) codes relating to diagnoses.
+  \item D\_ICD\_PROCEDURES: Dictionary of International Statistical Classification of Diseases and Related Health Problems (ICD) codes relating to procedures.
+  \item D\_ITEMS: Dictionary of ITEMIDs appearing in the MIMIC database, except those that relate to laboratory tests.
+  \item D\_LABITEMS: Dictionary of ITEMIDs appearing in the MIMIC database that relate to laboratory tests.
 \end{itemize}
 
 
