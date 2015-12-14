@@ -111,10 +111,12 @@ The Laboratory for Computational Physiology at Massachusetts Institute of Techno
 
 \subsection*{Database development}
 
-The database was populated with data from existing archiving systems that had been acquired during routine hospital care, so there was no associated burden on carers and no interference with treatment of patients. 
-
-The project was approved by the Institutional Review Boards of Beth Israel Deaconess Medical Center (Boston, MA) and the Massachusetts Institute of Technology (Cambridge, MA). Requirement for individual patient consent was waived because the study did not impact clinical care and all protected health information was deidentified.
-
+The MIMIC-III database was populated with data that had been acquired during routine hospital care, so there was no associated burden on carers and no interference with treatment of patients. Data was downloaded from several sources, including:
+\begin{itemize}
+  \item hospital electronic health record databases
+  \item Social Security Administration Death Master Files
+  \item archives from critical care information systems
+\end{itemize}
 Two different critical care information systems were in place over the data collection period: Philips CareVue Clinical Information System (models M2331A and M1215A; Philips Health-care, Andover, MA) and iMDsoft MetaVision ICU (iMDsoft, Needham, MA). These systems were the source of clinical data such as: 
 \begin{itemize}
   \item time-stamped nurse-verified physiological measurements (for example, hourly documentation of heart rate, arterial blood pressure, respiratory rate, etc).
@@ -129,6 +131,8 @@ Additional information was collected from the hospital health record system, inc
   \item billing-related information such as International Classification of Disease, 9th Edition (ICD-9) codes, Diagnosis Related Group (DRG) codes, and Current Procedural Terminology (CPT) codes.
 \end{itemize}
 Out-of-hospital mortality dates were obtained using the Social Security Administration Death Master Files. A more detailed description of the data is shown in Table 1. 
+
+The project was approved by the Institutional Review Boards of Beth Israel Deaconess Medical Center (Boston, MA) and the Massachusetts Institute of Technology (Cambridge, MA). Requirement for individual patient consent was waived because the study did not impact clinical care and all protected health information was deidentified.
 
 \subsection*{Deidentification}
 
