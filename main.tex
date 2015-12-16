@@ -31,7 +31,7 @@ Firstname Lastname\textsuperscript{1}
 Firstname Lastname (email@address)
 
 \begin{abstract} % 170 words
-MIMIC-III is a large, single-center database comprising information relating to patients admitted to critical care units at a large tertiary hospital. Data includes vital signs, medications, laboratory measurements, observations charted by clinicians, fluid balance, procedure codes, diagnostic codes, imaging reports, outcomes, and more. The highly detailed resource supports areas including academic and industry research, benchmarking of algorithms, and higher education coursework.
+MIMIC-III is a large, single-center database comprising information relating to patients admitted to critical care units at a large tertiary hospital. Data includes vital signs, medications, laboratory measurements, observations and notes charted by clinicians, fluid balance, procedure codes, diagnostic codes, imaging reports, hospital length of stay, survival data, and more. The database supports areas including academic and industry research, quality improvement initiatives, and higher education coursework.
 \end{abstract}
 
 \section*{Background \& summary} % 700 words
@@ -55,17 +55,17 @@ MIMIC-III is a large, single-center database comprising information relating to 
 
 In recent years there has been a concerted move towards the adoption of digital health record systems in hospitals. In the US, for example, the number of non-federal acute care hospitals with basic digital systems increased from 9.4\% to 75.5\% over the 7 year period between 2008 and 2014 \cite{cite1}.
 
-Despite this advance, interoperability of digital systems and archiving of data remain inadequate. As a result, the potential that hospital data offers in terms of understanding and improving care is yet to be fully realised. In parallel, the scientific research community is increasingly coming under criticism for the lack of reproducibility of studies \cite{cite2}.
+Despite this advance, interoperability of digital systems remains inadequate leading to challenges in data integration. As a result, the potential that hospital data offers in terms of understanding and improving care is yet to be fully realised. In parallel, the scientific research community is increasingly coming under criticism for the lack of reproducibility of studies \cite{cite2}.
 
-Here we report release of the MIMIC-III database, an update to the widely-used MIMIC-II database \cite{cite3}. MIMIC-III integrates inaccessible clinical data and makes it widely accessible to researchers internationally (Figure \ref{fig:mimicoverview}). By allowing data and code used for its analysis to be shared together, the database allows studies to be reproduced and critiqued in ways that would not otherwise be possible. 
+Here we report release of the MIMIC-III database, an update to the widely-used MIMIC-II database \cite{cite3}. MIMIC-III integrates comprehensive clinical data and makes it widely accessible to researchers internationally (Figure \ref{fig:mimicoverview}). By allowing data and code used for its analysis to be shared together, the database allows studies to be reproduced and improved in ways that would not otherwise be possible. 
 
-Based on our experience of the previous major release of MIMIC (MIMIC-II, released in 2010) we anticipate MIMIC-III to be widely used internationally in areas such as academic and industry research, benchmarking of algorithms, and higher education coursework.
+Based on our experience with the previous major release of MIMIC (MIMIC-II, released in 2010) we anticipate MIMIC-III to be widely used internationally in areas such as academic and industry research, quality improvement initiatives, and higher education coursework. To account for the increasingly broad usage of MIMIC, we have renamed the full title of the database from "Multiparameter Intelligent Monitoring in Intensive Care" to "Medical Information Mart for Intensive Care".
 
 The MIMIC-III critical care database is unique and notable for the following reasons: 
 \begin{itemize}
-  \item it is the only freely accessible database of its kind;
-  \item the dataset is large and highly granular, with detailed information about individual patient care;
-  \item access is unrestricted by institutional barriers, enabling clinical research and education around the world.
+  \item it is the only freely accessible critical care database of its kind;
+  \item the dataset is large and high resolution, with detailed information about individual patient care;
+  \item access is unrestricted once a data user agreement is approved, enabling clinical research and education around the world.
 \end{itemize}
 
 \subsection*{Patient characteristics}
@@ -87,7 +87,7 @@ The primary International Classification of Diseases (ICD-9) codes from the pati
 
 \subsection*{Classes of data}
 
-Data available in the MIMIC-III database ranges from time-stamped, nurse-verified physiological measurements made at the bedside to free-text interpretations of imaging studies provided by the radiography department. Table \ref{table:dataclasses} gives an overview of the different classes of data available. 
+Data available in the MIMIC-III database ranges from time-stamped, nurse-verified physiological measurements made at the bedside to free-text interpretations of imaging studies provided by the radiology department. Table \ref{table:dataclasses} gives an overview of the different classes of data available. 
 
 \section*{Methods}
 
@@ -111,11 +111,11 @@ The Laboratory for Computational Physiology at Massachusetts Institute of Techno
 
 \subsection*{Database development}
 
-The MIMIC-III database was populated with data that had been acquired during routine hospital care, so there was no associated burden on carers and no interference with treatment of patients. Data was downloaded from several sources, including:
+The MIMIC-III database was populated with data that had been acquired during routine hospital care, so there was no associated burden on caregivers and no interference with treatment of patients. Data was downloaded from several sources, including:
 \begin{itemize}
+  \item archives from critical care information systems
   \item hospital electronic health record databases
   \item Social Security Administration Death Master Files
-  \item archives from critical care information systems
 \end{itemize}
 Two different critical care information systems were in place over the data collection period: Philips CareVue Clinical Information System (models M2331A and M1215A; Philips Health-care, Andover, MA) and iMDsoft MetaVision ICU (iMDsoft, Needham, MA). These systems were the source of clinical data such as: 
 \begin{itemize}
@@ -124,15 +124,16 @@ Two different critical care information systems were in place over the data coll
   \item continuous intravenous drip medications and fluid balances.
 \end{itemize}
 
-Additional information was collected from the hospital health record system, including, such as:
+Additional information was collected from hospital and laboratory health record systems, including:
 \begin{itemize}
-  \item laboratory test results (for example, complete blood counts, and microbiology results).
   \item patient demographics and in-hospital mortality.
+  \item laboratory test results (for example, haematology, chemistry, and microbiology results).
+  \item discharge summaries and reports of electrocardiogram and imaging studies.
   \item billing-related information such as International Classification of Disease, 9th Edition (ICD-9) codes, Diagnosis Related Group (DRG) codes, and Current Procedural Terminology (CPT) codes.
 \end{itemize}
 Out-of-hospital mortality dates were obtained using the Social Security Administration Death Master Files. A more detailed description of the data is shown in Table 1. 
 
-The project was approved by the Institutional Review Boards of Beth Israel Deaconess Medical Center (Boston, MA) and the Massachusetts Institute of Technology (Cambridge, MA). Requirement for individual patient consent was waived because the study did not impact clinical care and all protected health information was deidentified.
+The project was approved by the Institutional Review Boards of Beth Israel Deaconess Medical Center (Boston, MA) and the Massachusetts Institute of Technology (Cambridge, MA). Requirement for individual patient consent was waived because the project did not impact clinical care and all protected health information was deidentified.
 
 \subsection*{Deidentification}
 
@@ -142,10 +143,10 @@ Protected health information was removed from free text fields such as diagnosti
 
 \subsection*{Data access}
 
-MIMIC-III contains detailed information regarding the clinical care of patients, so it must be treated with appropriate care and respect. Researchers are required to formally request access via a process documented on MIMIC website. There are two key steps that must be completed before access is granted:
+MIMIC-III contains detailed information regarding the clinical care of patients, so it must be treated with appropriate care and respect. Researchers are required to formally request access via a process documented on the MIMIC website (http://mimic.physionet.org). There are two key steps that must be completed before access is granted:
 
 \begin{enumerate}
-  \item the researcher must complete a recognised course in protecting human research participants.
+  \item the researcher must complete a recognised course in protecting human research participants that includes Health Insurance Portability and Accountability Act (HIPAA) requirements.
   \item the researcher must sign a Data Use Agreement, which outlines appropriate data usage, security, and forbids efforts to identify individual patients.
 \end{enumerate}
 
@@ -216,7 +217,7 @@ An IPython Notebook containing the code used to generate the tables and descript
 
 MIMIC-III is a relational database consisting of 26 tables. Tables are linked by identifiers which usually have the suffix "ID". For example, SUBJECT\_ID refers to a unique patient, HADM\_ID refers to a unique admission to the hospital, and ICUSTAY\_ID refers to a unique admission to an intensive care unit. 
 
-Charted events such as notes, laboratory tests, and fluid balance are stored in a series of "events" tables. For example the OUTPUTEVENTS table contains all measurements related to output for a given patient, while the LABEVENTS table contains laboratory tests for a patient.
+Charted events such as notes, laboratory tests, and fluid balance are stored in a series of "events" tables. For example the OUTPUTEVENTS table contains all measurements related to output for a given patient, while the LABEVENTS table contains laboratory test results for a patient.
 
 Tables prefixed with “D\_” are dictionaries and provide definitions for identifiers. For example, every row of OUTPUTEVENTS is associated with a single ITEMID which represents the concept measured, but it does not contain the actual name of the drug. By joining OUTPUTEVENTS and D\_ITEMS on ITEMID, it is possible to identify what concept a given ITEMID represents. Further detail is provided below.
 
@@ -246,7 +247,7 @@ The following tables contain data associated with each patient:
   \item INPUTEVENTS\_MV: Intake for patients monitored using the iMDSoft MetaVision system while in the ICU.
   \item OUTPUTEVENTS: Output information for patients while in the ICU.
   \item LABEVENTS: Laboratory measurements for patients both within the hospital and in outpatient clinics following hospital discharge.
-  \item MICROBIOLOGYEVENTS: Microbiology measurements and antibiotic sensitivities from the hospital database.
+  \item MICROBIOLOGYEVENTS: Microbiology culture results and antibiotic sensitivities from the hospital database.
   \item NOTEEVENTS: Deidentified notes, including nursing and physician notes, ECG reports, imaging reports, and discharge summaries.
   \item PRESCRIPTIONS: Medications ordered for a given patient.
   \item PROCEDUREEVENTS\_MV: Patient procedures for the subset of patients who were monitored in the ICU using the iMDSoft MetaVision system.
@@ -278,7 +279,7 @@ A minimal amount of processing was undertaken to achieve the desired deidentific
 
 Values derived from the raw hospital data, such as computed severity of illness scores, are not included in the core MIMIC-III data. Instead this supplementary information will be developed collaboratively by the community and labeled explicitly.
 
-Best practice for scientific computing was followed where possible \cite{cite4}. Code used to build MIMIC-III was version controlled and developed collaboratively within the laboratory. The approach encouraged readable code and documentation, as well as frequent feedback from colleagues.
+Best practice for scientific computing was followed where possible \cite{cite4}. Code used to build MIMIC-III was version controlled and developed collaboratively within the laboratory. The approach encouraged and facilitated sharing of readable code and documentation, as well as frequent feedback from colleagues.
 
 Issue tracking is used to ensure that limitations of the dataset and code are clearly documented and are dealt with as appropriate. The research community is encouraged to report and address issues as they are found, and a system for releasing minor database updates is in place.
 
@@ -340,7 +341,7 @@ The repository provides a place for researchers to share and reuse MIMIC related
 % of each author to this work on a separate line. 
 % ------------------------------------ %
 
-This research and development was supported by Critical Care Informatics Grants NIH-R01-EB017205, NIH-R01-EB001659, and NIH-R01-GW104987 from the National Institutes of Health. The authors would also like to thank Philips Healthcare and staff at the Beth Israel Deaconess Medical Center, Boston.
+This research and development was supported by grants NIH-R01-EB017205, NIH-R01-EB001659, and NIH-R01-GW104987 from the National Institutes of Health. The authors would also like to thank Philips Healthcare and staff at the Beth Israel Deaconess Medical Center, Boston.
 
 \section*{Competing financial interests}
 
@@ -404,11 +405,11 @@ The authors declare no competing financial interests.
     \hline
     Physiologic & Nurse-verified vital signs, approximately hourly (e.g. heart rate, blood pressure, respiratory rate). \\ 
     \hline
-    Laboratory & Blood chemistry, urine analysis, and microbiology test results. \\ 
+    Laboratory & Blood chemistry, hematology, urine analysis, and microbiology test results. \\ 
     \hline
-    Medications & Administration records of intravenous medications and ordered medications. \\ 
+    Medications & Administration records of intravenous medications and medication orders. \\ 
     \hline
-    Imaging reports & Free text reports of imaging studies, such as echocardiograms and x-rays. \\ 
+    Reports & Free text reports of electrocardiogram and imaging studies. \\ 
     \hline
     Notes & Free text notes such as provider progress notes and hospital discharge summaries. \\ 
     \hline
