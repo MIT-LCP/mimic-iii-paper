@@ -31,7 +31,7 @@ Firstname Lastname\textsuperscript{1}
 Firstname Lastname (email@address)
 
 \begin{abstract} % 170 words
-MIMIC-III is a large, single-center database comprising information relating to patients admitted to critical care units at a large tertiary hospital. Data includes vital signs, medications, laboratory measurements, observations and notes charted by clinicians, fluid balance, procedure codes, diagnostic codes, imaging reports, hospital length of stay, survival data, and more. The database supports areas including academic and industry research, quality improvement initiatives, and higher education coursework.
+MIMIC-III is a large, single-center database comprising information relating to patients admitted to critical care units at a large tertiary hospital. Data includes vital signs, medications, laboratory measurements, observations and notes charted by clinicians, fluid balance, procedure codes, diagnostic codes, imaging reports, hospital length of stay, survival data, and more. The database supports areas including academic and industrial research, quality improvement initiatives, and higher education coursework.
 \end{abstract}
 
 \section*{Background \& summary} % 700 words
@@ -57,20 +57,20 @@ In recent years there has been a concerted move towards the adoption of digital 
 
 Despite this advance, interoperability of digital systems remains inadequate leading to challenges in data integration. As a result, the potential that hospital data offers in terms of understanding and improving care is yet to be fully realised. In parallel, the scientific research community is increasingly coming under criticism for the lack of reproducibility of studies \cite{cite2}.
 
-Here we report release of the MIMIC-III database, an update to the widely-used MIMIC-II database \cite{cite3}. MIMIC-III integrates comprehensive clinical data and makes it widely accessible to researchers internationally (Figure \ref{fig:mimicoverview}). By allowing data and code used for its analysis to be shared together, the database allows studies to be reproduced and improved in ways that would not otherwise be possible.
+Here we report release of the MIMIC-III database, an update to the widely-used MIMIC-II database \cite{cite3}. MIMIC-III integrates comprehensive clinical data and makes it widely accessible to researchers internationally (Figure \ref{fig:mimicoverview}). The publicly available nature of the data allows clinical studies to be reproduced and improved in ways that would not otherwise be possible.
 
-Based on our experience with the previous major release of MIMIC (MIMIC-II, released in 2010) we anticipate MIMIC-III to be widely used internationally in areas such as academic and industry research, quality improvement initiatives, and higher education coursework. To account for the increasingly broad usage of MIMIC, we have renamed the full title of the database from "Multiparameter Intelligent Monitoring in Intensive Care" to "Medical Information Mart for Intensive Care".
+Based on our experience with the previous major release of MIMIC (MIMIC-II, released in 2010) we anticipate MIMIC-III to be widely used internationally in areas such as academic and industrial research, quality improvement initiatives, and higher education coursework. To account for the increasingly broad usage of MIMIC, we have renamed the full title of the database from "Multiparameter Intelligent Monitoring in Intensive Care" to "Medical Information Mart for Intensive Care".
 
 The MIMIC-III critical care database is unique and notable for the following reasons:
 \begin{itemize}
   \item it is the only freely accessible critical care database of its kind;
-  \item the dataset is large and high resolution, with detailed information about individual patient care;
+  \item the dataset spans over a decade, with detailed information about individual patient care;
   \item access is unrestricted once a data user agreement is approved, enabling clinical research and education around the world.
 \end{itemize}
 
 \subsection*{Patient characteristics}
 
-MIMIC-III contains data associated with approximately 46,476 patients admitted to critical care units of the Beth Israel Deaconess Medical Center in Boston, Massachusetts, between 2001 and 2012. The data covers approximately 57,786 unique hospital admissions and 61,532 unique stays in a critical care unit. The median age of patients is 62.0 years (IQR: 44.3 - 76.1), 55.9\% patients are male, and in-hospital mortality is 10.1\%. Median length of ICU stay is 2.1 days and median length of hospital stay is 6.6 days. Table \ref{table:patientpopulation} provides a breakdown of the population by care unit.
+MIMIC-III contains data associated with 46,476 patients admitted to critical care units of the Beth Israel Deaconess Medical Center in Boston, Massachusetts, between 2001 and 2012. The data covers 57,786 unique hospital admissions and 61,532 unique stays in a critical care unit. The median age of patients is 62.0 years (IQR: 44.3 - 76.1), 55.9\% patients are male, and in-hospital mortality is 10.1\%. Median length of ICU stay is 2.1 days and median length of hospital stay is 6.6 days. An average of 4267 charted observations occur for each ICU stay, and an average of 380 laboratory measurements are available for each hospitalization. Table \ref{table:patientpopulation} provides a breakdown of the population by care unit.
 
 The primary International Classification of Diseases (ICD-9) codes from the patient discharges are listed in Table \ref{table:icddistribution}. The top three codes across hospital admissions for patients of 16 years and older were:
 \begin{itemize}
@@ -107,7 +107,7 @@ Data available in the MIMIC-III database ranges from time-stamped, nurse-verifie
 % There is no limit to the length of the Methods section.
 % ------------------------------------ %
 
-The Laboratory for Computational Physiology at Massachusetts Institute of Technology is an interdisciplinary team of data scientists and practicing physicians, allowing clinical input to guide technical development. MIMIC-III is the third iteration of the MIMIC critical care database, enabling us to draw upon prior experience \cite{cite3}.
+The Laboratory for Computational Physiology at Massachusetts Institute of Technology is an interdisciplinary team of data scientists and practicing physicians, facilitating integration of both clinical and technical knowledge during research. MIMIC-III is the third iteration of the MIMIC critical care database, enabling us to draw upon prior experience \cite{cite3}.
 
 \subsection*{Database development}
 
@@ -115,12 +115,12 @@ The MIMIC-III database was populated with data that had been acquired during rou
 \begin{itemize}
   \item archives from critical care information systems
   \item hospital electronic health record databases
-  \item Social Security Administration Death Master Files
+  \item Social Security Administration Death Master File
 \end{itemize}
 Two different critical care information systems were in place over the data collection period: Philips CareVue Clinical Information System (models M2331A and M1215A; Philips Health-care, Andover, MA) and iMDsoft MetaVision ICU (iMDsoft, Needham, MA). These systems were the source of clinical data such as:
 \begin{itemize}
-  \item time-stamped nurse-verified physiological measurements (for example, hourly documentation of heart rate, arterial blood pressure, respiratory rate, etc).
-  \item caregiver documented progress notes.
+  \item time-stamped nurse-verified physiological measurements (e.g. hourly documentation of heart rate, arterial blood pressure, or respiratory rate);
+  \item caregiver documented progress notes;
   \item continuous intravenous drip medications and fluid balances.
 \end{itemize}
 
@@ -131,26 +131,15 @@ Additional information was collected from hospital and laboratory health record 
   \item discharge summaries and reports of electrocardiogram and imaging studies.
   \item billing-related information such as International Classification of Disease, 9th Edition (ICD-9) codes, Diagnosis Related Group (DRG) codes, and Current Procedural Terminology (CPT) codes.
 \end{itemize}
-Out-of-hospital mortality dates were obtained using the Social Security Administration Death Master Files. A more detailed description of the data is shown in Table 1.
+Out-of-hospital mortality dates were obtained using the Social Security Administration Death Master File. A more detailed description of the data is shown in Table 1.
 
 The project was approved by the Institutional Review Boards of Beth Israel Deaconess Medical Center (Boston, MA) and the Massachusetts Institute of Technology (Cambridge, MA). Requirement for individual patient consent was waived because the project did not impact clinical care and all protected health information was deidentified.
 
 \subsection*{Deidentification}
 
-Before data was incorporated into the MIMIC-III database, it was first deidentified according to Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements, including fields such as patient name, telephone number, and address. We also removed provider identifiers.
+Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements, including fields such as patient name, telephone number, and address. Dates were shifted into the future by a random offset for each individual patient in a consistent manner, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were preserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA standards: these patients appear in the database with ages over 300. Provider and care giver identifiers were also removed and replaced with anonymous identifiers.
 
 Protected health information was removed from free text fields such as diagnostic reports and physician notes using an updated version of an algorithm that has been shown to have superior performance in comparison to clinicians in detecting protected health information \cite{cite5}.
-
-\subsection*{Data access}
-
-MIMIC-III contains detailed information regarding the clinical care of patients, so it must be treated with appropriate care and respect. Researchers are required to formally request access via a process documented on the MIMIC website (http://mimic.physionet.org). There are two key steps that must be completed before access is granted:
-
-\begin{enumerate}
-  \item the researcher must complete a recognised course in protecting human research participants that includes Health Insurance Portability and Accountability Act (HIPAA) requirements.
-  \item the researcher must sign a Data Use Agreement, which outlines appropriate data usage, security, and forbids efforts to identify individual patients.
-\end{enumerate}
-
-Approval requires at least a week. Once an application has been approved the researcher will receive emails containing instructions for downloading the database from PhysioNetWorks \cite{cite6}.
 
 \subsection*{Code availability}
 
@@ -164,11 +153,7 @@ Approval requires at least a week. Once an application has been approved the res
 
 % The code used to create the MIMIC-III database from raw hospital exports has been made available in a public archive. Prior to opening up the code, the commit history was deleted to avoid sensitive information being inadvertently shared: https://github.com/MIT-LCP/mimic-iii-building %
 
-
-
 The code that underpins the MIMIC-III website and documentation is openly available and contributions from the research community are encouraged: \\ https://github.com/MIT-LCP/mimic-website
-
-Additionally, a public "MIMIC Code Repository" has been created to encourage researchers to collaboratively develop and share code used for data processing and analysis: \\ https://github.com/MIT-LCP/mimic-code
 
 An IPython Notebook containing the code used to generate the tables and descriptive statistics included in this paper is available at: \\ https://github.com/MIT-LCP/mimic-iii-paper/
 
@@ -219,7 +204,7 @@ MIMIC-III is a relational database consisting of 26 tables. Tables are linked by
 
 Charted events such as notes, laboratory tests, and fluid balance are stored in a series of "events" tables. For example the OUTPUTEVENTS table contains all measurements related to output for a given patient, while the LABEVENTS table contains laboratory test results for a patient.
 
-Tables prefixed with “D\_” are dictionaries and provide definitions for identifiers. For example, every row of OUTPUTEVENTS is associated with a single ITEMID which represents the concept measured, but it does not contain the actual name of the drug. By joining OUTPUTEVENTS and D\_ITEMS on ITEMID, it is possible to identify what concept a given ITEMID represents. Further detail is provided below.
+Tables prefixed with “D\_” are dimension tables and provide definitions for identifiers. For example, every row of CHARTEVENTS is associated with a single ITEMID which represents the concept measured, but it does not contain the actual name of the measurement. By joining CHARTEVENTS and D\_ITEMS on ITEMID, it is possible to identify what concept a given ITEMID represents. Further detail is provided below.
 
 \subsection*{Data tables}
 
@@ -248,7 +233,7 @@ The following tables contain data associated with each patient:
   \item OUTPUTEVENTS: Output information for patients while in the ICU.
   \item LABEVENTS: Laboratory measurements for patients both within the hospital and in outpatient clinics following hospital discharge.
   \item MICROBIOLOGYEVENTS: Microbiology culture results and antibiotic sensitivities from the hospital database.
-  \item NOTEEVENTS: Deidentified notes, including nursing and physician notes, ECG reports, imaging reports, and discharge summaries.
+  \item NOTEEVENTS: Deidentified notes, including nursing and physician notes, ECG reports, radiology reports, and discharge summaries.
   \item PRESCRIPTIONS: Medications ordered for a given patient.
   \item PROCEDUREEVENTS\_MV: Patient procedures for the subset of patients who were monitored in the ICU using the iMDSoft MetaVision system.
   \item PROCEDURES\_ICD: Patient procedures, coded using the International Statistical Classification of Diseases and Related Health Problems (ICD) system.
@@ -277,8 +262,6 @@ The following tables are dictionaries:
 
 A minimal amount of processing was undertaken to achieve the desired deidentification and data structure, helping to ensure that MIMIC-III closely represents the raw data collected within the Beth Israel Deaconess Medical Center.
 
-Values derived from the raw hospital data, such as computed severity of illness scores, are not included in the core MIMIC-III data. Instead this supplementary information will be developed collaboratively by the community and labeled explicitly.
-
 Best practice for scientific computing was followed where possible \cite{cite4}. Code used to build MIMIC-III was version controlled and developed collaboratively within the laboratory. The approach encouraged and facilitated sharing of readable code and documentation, as well as frequent feedback from colleagues.
 
 Issue tracking is used to ensure that limitations of the dataset and code are clearly documented and are dealt with as appropriate. The research community is encouraged to report and address issues as they are found, and a system for releasing minor database updates is in place.
@@ -291,6 +274,8 @@ Issue tracking is used to ensure that limitations of the dataset and code are cl
 % 	All ICUSTAY_ID associated with HADM_ID, all HADM_ID associated with a SUBJECT_ID
 % 	No ages < 0
 %	Very few DODs < discharge
+
+%Every distinct ICU admission in the database (unique ICUSTAY_ID) is associated with a single hospitalization (HADM_ID), and similarly every distinct hospitalization in the database is associated with a single patient (SUBJECT_ID).
 
 \section*{Usage notes}
 
@@ -313,23 +298,30 @@ Issue tracking is used to ensure that limitations of the dataset and code are cl
 % on data use.
 % ------------------------------------ %
 
-MIMIC is provided as a collection of comma separated value (CSV) files, along with scripts to help with importing the data into popular database systems including PostreSQL and MySQL. Our laboratory is also trialing a shared cloud instance of the database which is made accessible to researchers on request.
+\subsection*{Data access}
 
-\subsection*{Community support}
+MIMIC-III is provided as a collection of comma separated value (CSV) files, along with scripts to help with importing the data into popular database systems including PostreSQL and MySQL.
+As the database contains detailed information regarding the clinical care of patients, it must be treated with appropriate care and respect. Researchers are required to formally request access via a process documented on the MIMIC website (http://mimic.physionet.org). There are two key steps that must be completed before access is granted:
 
-Sharing a dataset such as MIMIC-III carries both a responsibility to address issues with the data, and an expectation from users to provide support. Our laboratory is committed to continuously improving the data and documentation, but resources limit the amount of tailored advice that we can give to the worldwide community of users.
+\begin{enumerate}
+  \item the researcher must complete a recognised course in protecting human research participants that includes Health Insurance Portability and Accountability Act (HIPAA) requirements.
+  \item the researcher must sign a data use agreement, which outlines appropriate data usage, security, and forbids efforts to identify individual patients.
+\end{enumerate}
 
-We believe that some of the burden of support must be carried by the community as a whole. We have therefore made the repository used to generate the documentation and website publicly available and we encourage participation in its development. A forum for users to ask and answer MIMIC-III related questions is also provided via the MIMIC website.
-
-% Our hope is that we can provide access while not covering compute costs...
+Approval requires at least a week. Once an application has been approved the researcher will receive emails containing instructions for downloading the database from PhysioNetWorks, a restricted access component of PhysioNet \cite{cite6}.
 
 \subsection*{Collaborative research}
 
-Our experience is that many researchers work independently to produce code for data processing and analysis. We seek to move towards a more collaborative, iterative development process where researchers work together on a shared code base. To facilitate collaboration, we have created the MIMIC Code Repository.
+Our experience is that many researchers work independently to produce code for data processing and analysis. We seek to move towards a more collaborative, iterative development process where researchers work together on a shared code base.
+To facilitate collaboration, a public "MIMIC Code Repository" has been created to encourage researchers to collaboratively develop and share code used for data processing and analysis: \\ https://github.com/MIT-LCP/mimic-code
+This repository has been seeded with code to calculate commonly utilised concepts in critical care research, including severity of illness scores, durations of mechanical ventilation, and comorbidity scores.
+% More detail regarding the concepts derived in the repository is available \cite{?}.
+We encourage users to incorporate this code into their research, provide improvements as they see fit, and contribute code they feel would benefit the research community as a whole. Over time, we expect the repository to become increasingly vital for researchers working with MIMIC-III.
 
-The repository provides a place for researchers to share and reuse MIMIC related code. Examples of code already shared include a script to identify a sepsis cohort with the Angus criteria and a script to measure comorbidities using the Elixhauser Comorbidity Index. Over time, we expect the repository to become increasingly important for researchers working with MIMIC-III.
+% TP: we may want to assign a DOI to the MIMIC Code Repository. This would allow it to be moved in future and also allow us to track citations etc
 
-% TP: we may want to assign a DOI to the MIMIC Code Repository. This would allow it to be moved in future and also allow us to track citations etc.
+As previously mentioned, the documentation for the database is available online (http://mimic.physionet.org), and we encourage users to contribute to this documentation at: \\ https://github.com/MIT-LCP/mimic-website
+Finally, a forum for users to ask and answer MIMIC-III related questions is also provided via the MIMIC website.
 
 \section*{Acknowledgements}
 
@@ -342,6 +334,7 @@ The repository provides a place for researchers to share and reuse MIMIC related
 % ------------------------------------ %
 
 This research and development was supported by grants NIH-R01-EB017205, NIH-R01-EB001659, and NIH-R01-GW104987 from the National Institutes of Health. The authors would also like to thank Philips Healthcare and staff at the Beth Israel Deaconess Medical Center, Boston.
+%TODO: iMDSoft? Did they help us?
 
 \section*{Competing financial interests}
 
