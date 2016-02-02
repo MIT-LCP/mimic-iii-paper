@@ -22,14 +22,21 @@
 % database doi:10.13026/C2XW26
 
 \author{
-Firstname Lastname\textsuperscript{1}
-, Firstname Lastname\textsuperscript{2{*}}
+Alistair Johnson\textsuperscript{1{*}}
+, Tom J. Pollard\textsuperscript{1{*}}
+, Lu Shen\textsuperscript{2}, \\
+ Li-wei Lilehman\textsuperscript{1}
+, Mornin Feng\textsuperscript{1} 
+, Mohammad Ghassemi\textsuperscript{1}, \\
+ Benjamin Moody\textsuperscript{1}
+, Leo Celi\textsuperscript{1}
+, Roger G. Mark\textsuperscript{1}
 }
 
 \maketitle
 \thispagestyle{fancy}
 
-1. An affiliation 2. A different affiliation {*}corresponding author(s):
+1. MIT, US 2. A different affiliation {*}corresponding author(s):
 Firstname Lastname (email@address)
 
 \begin{abstract} % 170 words
@@ -57,17 +64,17 @@ MIMIC-III is a large, single-center database comprising information relating to 
 
 In recent years there has been a concerted move towards the adoption of digital health record systems in hospitals. In the US, for example, the number of non-federal acute care hospitals with basic digital systems increased from 9.4\% to 75.5\% over the 7 year period between 2008 and 2014 \cite{cite1}.
 
-Despite this advance, interoperability of digital systems remains inadequate leading to challenges in data integration. As a result, the potential that hospital data offers in terms of understanding and improving care is yet to be fully realised. In parallel, the scientific research community is increasingly coming under criticism for the lack of reproducibility of studies \cite{cite2}.
+Despite this advance, interoperability of digital systems remains inadequate, leading to challenges in data integration. As a result, the potential that hospital data offers in terms of understanding and improving care is yet to be fully realised. In parallel, the scientific research community is increasingly coming under criticism for the lack of reproducibility of studies \cite{cite2}.
 
-Here we report release of the MIMIC-III database, an update to the widely-used MIMIC-II database \cite{cite3}. MIMIC-III integrates comprehensive clinical data and makes it widely accessible to researchers internationally (Figure \ref{fig:mimicoverview}). The publicly available nature of the data allows clinical studies to be reproduced and improved in ways that would not otherwise be possible.
+Here we report release of the MIMIC-III database, an update to the widely-used MIMIC-II database \cite{cite3}. MIMIC-III integrates deidentified, comprehensive clinical data and makes it widely accessible to researchers internationally (Figure \ref{fig:mimicoverview}). The publicly available nature of the data allows clinical studies to be reproduced and improved in ways that would not otherwise be possible.
 
-Based on our experience with the previous major release of MIMIC (MIMIC-II, released in 2010) we anticipate MIMIC-III to be widely used internationally in areas such as academic and industrial research, quality improvement initiatives, and higher education coursework. To account for the increasingly broad usage of MIMIC, we have renamed the full title of the database from "Multiparameter Intelligent Monitoring in Intensive Care" to "Medical Information Mart for Intensive Care".
+Based on our experience with the previous major release of MIMIC (MIMIC-II, released in 2010) we anticipate MIMIC-III to be widely used internationally in areas such as academic and industrial research, quality improvement initiatives, and higher education coursework. To recognize the increasingly broad usage of MIMIC, we have renamed the full title of the database from "Multiparameter Intelligent Monitoring in Intensive Care" to "Medical Information Mart for Intensive Care".
 
 The MIMIC-III critical care database is unique and notable for the following reasons:
 \begin{itemize}
   \item it is the only freely accessible critical care database of its kind;
-  \item the dataset spans over a decade, with detailed information about individual patient care;
-  \item access is unrestricted once a data user agreement is approved, enabling clinical research and education around the world.
+  \item the dataset spans more than a decade, with detailed information about individual patient care;
+  \item access is unrestricted once a data user agreement is accepted, enabling clinical research and education around the world.
 \end{itemize}
 
 \subsection*{Patient characteristics}
@@ -133,7 +140,7 @@ Additional information was collected from hospital and laboratory health record 
   \item discharge summaries and reports of electrocardiogram and imaging studies.
   \item billing-related information such as International Classification of Disease, 9th Edition (ICD-9) codes, Diagnosis Related Group (DRG) codes, and Current Procedural Terminology (CPT) codes.
 \end{itemize}
-Out-of-hospital mortality dates were obtained using the Social Security Administration Death Master File. A more detailed description of the data is shown in Table 1.
+Out-of-hospital mortality dates were obtained using the Social Security Administration Death Master File. A more detailed description of the data is shown in Table 1. Physiological waveforms obtained from bedside monitors (such as electrocardiogram, blood pressures, pulse plethysmograms, respirations) are available for a subset of patients. 
 
 The project was approved by the Institutional Review Boards of Beth Israel Deaconess Medical Center (Boston, MA) and the Massachusetts Institute of Technology (Cambridge, MA). Requirement for individual patient consent was waived because the project did not impact clinical care and all protected health information was deidentified.
 
@@ -317,16 +324,15 @@ Approval requires at least a week. Once an application has been approved the res
 
 \subsection*{Collaborative research}
 
-Our experience is that many researchers work independently to produce code for data processing and analysis. We seek to move towards a more collaborative, iterative development process where researchers work together on a shared code base.
-To facilitate collaboration, a public "MIMIC Code Repository" has been created to encourage researchers to collaboratively develop and share code used for data processing and analysis: \\ https://github.com/MIT-LCP/mimic-code
-This repository has been seeded with code to calculate commonly utilised concepts in critical care research, including severity of illness scores, durations of mechanical ventilation, and comorbidity scores.
+Our experience is that many researchers work independently to produce code for data processing and analysis. We seek to move towards a more collaborative, iterative development process where researchers work together on a shared code base. To facilitate collaboration, a public "MIMIC Code Repository" has been created to encourage researchers to develop and share code collectively: https://github.com/MIT-LCP/mimic-code \\
+
+The repository has been seeded with code to calculate commonly utilised concepts in critical care research, including severity of illness scores, comorbidity scores, and durations of mechanical ventilation.
 % More detail regarding the concepts derived in the repository is available \cite{?}.
-We encourage users to incorporate this code into their research, provide improvements as they see fit, and contribute code they feel would benefit the research community as a whole. Over time, we expect the repository to become increasingly vital for researchers working with MIMIC-III.
+We encourage users to incorporate this code into their research, provide improvements, and make new contributions that would benefit the research community as a whole. Over time, we expect the repository to become increasingly vital for researchers working with the MIMIC-III database.
 
 % TP: we may want to assign a DOI to the MIMIC Code Repository. This would allow it to be moved in future and also allow us to track citations etc
 
-As previously mentioned, the documentation for the database is available online (http://mimic.physionet.org), and we encourage users to contribute to this documentation at: \\ https://github.com/MIT-LCP/mimic-website
-Finally, a forum for users to ask and answer MIMIC-III related questions is also provided via the MIMIC website.
+Documentation is available online (http://mimic.physionet.org) and offers functionality that allows members of the research community to directly submit updates and improvements to the content. Finally, a forum is provided to facilitate discussion.
 
 \section*{Acknowledgements}
 
@@ -496,7 +502,7 @@ The authors declare no competing financial interests.
     Total & 7,188 (14.6\%) & 9,080 (18.5\%) & 19,391 (39.5\%) & 7,989 (16.3\%) & 5,435 (11.1\%) & 49,083 (100\%) \\
     \hline
 \end{tabular}
-\caption{Distribution of primary International Classification of Diseases, 9th Edition (ICD-9) codes by critical care unit for patients of 16 years and older. CCU is Coronary Care Unit; CSRU is Cardiac Surgery Recovery Unit; MICU is Medical Intensive Care Unit; SICU is Surgical Intensive Care Unit; TSICU is Trauma Surgical Intensive Care Unit.}
+\caption{Distribution of primary International Classification of Diseases, 9th Edition (ICD-9) codes by critical care unit for patients aged 16 years and older. CCU is Coronary Care Unit; CSRU is Cardiac Surgery Recovery Unit; MICU is Medical Intensive Care Unit; SICU is Surgical Intensive Care Unit; TSICU is Trauma Surgical Intensive Care Unit.}
 \label{table:icddistribution}
 \end{table}
 \end{center}
