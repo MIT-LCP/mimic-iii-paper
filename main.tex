@@ -80,9 +80,9 @@ The MIMIC-III critical care database is unique and notable for the following rea
 
 \subsection*{Patient characteristics}
 
-MIMIC-III contains data associated with 46,476 patients admitted to critical care units of the Beth Israel Deaconess Medical Center in Boston, Massachusetts, between 2001 and 2012. The data covers 57,786 unique hospital admissions and 61,532 unique stays in a critical care unit. The median age of patients is 62.0 years (Q1-Q3: 44.3 - 76.1), 55.9\% patients are male, and in-hospital mortality is 10.1\%. Median length of ICU stay is 2.1 days and median length of hospital stay is 6.6 days. An average of 4267 charted observations occur for each ICU stay, and an average of 380 laboratory measurements are available for each hospitalization. Table \ref{table:patientpopulation} provides a breakdown of the population by care unit.
+MIMIC-III contains data associated with 53,423 distinct admissions for adult patients (aged 16 years or above) admitted to critical care units of the Beth Israel Deaconess Medical Center in Boston, Massachusetts, between 2001 and 2012. The data covers 38,597 distinct adult patients and 49,785 hospital admissions. The median age of adult patients is 65.8 years (Q1-Q3: 52.8 - 77.8), 55.9\% patients are male, and in-hospital mortality is 11.5\%. Median length of ICU stay is 2.1 days (Q1-Q3: 1.2 - 4.6) and median length of hospital stay is 6.9 days (Q1-Q3: 4.1 - 11.9). An average of 4267 charted observations occur for each ICU stay and an average of 380 laboratory measurements are available for each hospitalization. Table \ref{table:patientpopulation} provides a breakdown of the adult population by care unit.
 
-The primary International Classification of Diseases (ICD-9) codes from the patient discharges are listed in Table \ref{table:icddistribution}. The top three codes across hospital admissions for patients of 16 years and older were:
+The primary International Classification of Diseases (ICD-9) codes from the patient discharges are listed in Table \ref{table:icddistribution}. The top three codes across hospital admissions for patients aged 16 years and above were:
 \begin{itemize}
 \item 414.01 ("Coronary atherosclerosis of native coronary artery"), accounting for 7.1\% of all hospital admissions;
 \item 038.9 ("Unspecified septicemia"), accounting for 4.2\% of all hospital admissions; and
@@ -313,8 +313,7 @@ Issue tracking is used to ensure that limitations of the dataset and code are cl
 
 \subsection*{Data access}
 
-MIMIC-III is provided as a collection of comma separated value (CSV) files, along with scripts to help with importing the data into popular database systems including PostreSQL and MySQL.
-As the database contains detailed information regarding the clinical care of patients, it must be treated with appropriate care and respect. Researchers are required to formally request access via a process documented on the MIMIC website (http://mimic.physionet.org). There are two key steps that must be completed before access is granted:
+MIMIC-III is provided as a collection of comma separated value (CSV) files, along with scripts to help with importing the data into database systems including PostreSQL, MySQL, and MonetDB. As the database contains detailed information regarding the clinical care of patients, it must be treated with appropriate care and respect. Researchers are required to formally request access via a process documented on the MIMIC website (http://mimic.physionet.org). There are two key steps that must be completed before access is granted:
 
 \begin{enumerate}
   \item the researcher must complete a recognised course in protecting human research participants that includes Health Insurance Portability and Accountability Act (HIPAA) requirements.
@@ -345,7 +344,7 @@ Documentation is available online (http://mimic.physionet.org) and offers functi
 % of each author to this work on a separate line.
 % ------------------------------------ %
 
-This research and development was supported by grants NIH-R01-EB017205, NIH-R01-EB001659, and NIH-R01-GW104987 from the National Institutes of Health. The authors would also like to thank Philips Healthcare and staff at the Beth Israel Deaconess Medical Center, Boston.
+This research and development was supported by grants NIH-R01-EB017205, NIH-R01-EB001659, and NIH-R01-GW104987 from the National Institutes of Health. The authors would also like to thank Philips Healthcare and staff at the Beth Israel Deaconess Medical Center, Boston, for supporting database development, and Erin Hong for providing \ref{fig:mimicoverview}.
 %TODO: iMDSoft? Did they help us?
 
 \section*{Competing financial interests}
@@ -436,7 +435,7 @@ The authors declare no competing financial interests.
     \hline
     Hospital admissions, no. (\% of total admissions) & 7,258 (14.6\%) & 9,156 (18.4\%) & 19,770 (39.7\%) & 8,110 (16.3\%) & 5,491 (11.0\%) & 49,785 (100\%) \\
     \hline
-    Distinct ICU stays, no. (\% of total admissions) & 7,726 (14.5\%) & 9,854 (18.4\%) & 21,087 (39.5\%) & 8,891 (16.6\%) & 5,865 (11.0\%) & 61,532 (100\%) \\
+    Distinct ICU stays, no. (\% of total admissions) & 7,726 (14.5\%) & 9,854 (18.4\%) & 21,087 (39.5\%) & 8,891 (16.6\%) & 5,865 (11.0\%) & 53,423 (100\%) \\
     \hline
     Age, years, median (Q1-Q3) & 70.1 (58.4-80.5) & 67.6 (57.6-76.7) & 64.9 (51.7-78.2) & 63.6 (51.4-76.5) & 59.9 (42.9-75.7) & 65.8 (52.8-77.8) \\
     \hline
@@ -451,7 +450,7 @@ The authors declare no competing financial interests.
     Hospital mortality, percent of unit stays & 817 (11.3\%) & 424 (4.6\%) & 2,859 (14.5\%) &  1,020 (12.6\%) & 628 (11.4\%) & 5,748 (11.5\%) \\
     \hline
 \end{tabular}
-\caption{Details of the MIMIC-III patient population by first critical care unit on hospital admission for patients aged 16 years and above. CCU is Coronary Care Unit; CSRU is Cardiac Surgery Recovery Unit; MICU is Medical Intensive Care Unit; NICU is Neonatal Intensive Care Unit; SICU is Surgical Intensive Care Unit; TSICU is Trauma Surgical Intensive Care Unit.}
+\caption{Details of the MIMIC-III patient population by first critical care unit on hospital admission for patients aged 16 years and above. CCU is Coronary Care Unit; CSRU is Cardiac Surgery Recovery Unit; MICU is Medical Intensive Care Unit; SICU is Surgical Intensive Care Unit; TSICU is Trauma Surgical Intensive Care Unit.}
 \label{table:patientpopulation}
 \end{table}
 \end{center}
