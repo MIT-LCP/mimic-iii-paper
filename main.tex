@@ -27,8 +27,8 @@ Li-wei Lehman\textsuperscript{1},
 Mornin Feng\textsuperscript{1},
 Mohammad Ghassemi\textsuperscript{1}, \\
 Benjamin Moody\textsuperscript{1},
-Leo Anthony Celi\textsuperscript{1},
-Roger G. Mark\textsuperscript{1}
+Leo Anthony Celi\textsuperscript{1,2},
+Roger G. Mark\textsuperscript{1,2}
 }
 
 \maketitle
@@ -64,9 +64,9 @@ MIMIC-III is a large, single-center database comprising information relating to 
 
 In recent years there has been a concerted move towards the adoption of digital health record systems in hospitals. In the US, for example, the number of non-federal acute care hospitals with basic digital systems increased from 9.4\% to 75.5\% over the 7 year period between 2008 and 2014 \cite{cite1}.
 
-Despite this advance, interoperability of digital systems remains inadequate, leading to challenges in data integration. As a result, the potential that hospital data offers in terms of understanding and improving care is yet to be fully realised. In parallel, the scientific research community is increasingly coming under criticism for the lack of reproducibility of studies \cite{cite2}.
+Despite this advance, interoperability of digital systems remains inadequate, leading to challenges in data integration. As a result, the potential that hospital data offers in terms of understanding and improving care is yet to be fully realized. In parallel, the scientific research community is increasingly coming under criticism for the lack of reproducibility of studies \cite{cite2}.
 
-Here we report release of the MIMIC-III database, an update to the widely-used MIMIC-II database \cite{cite3}. MIMIC-III integrates deidentified, comprehensive clinical data and makes it widely accessible to researchers internationally (Figure \ref{fig:mimicoverview}). The publicly available nature of the data allows clinical studies to be reproduced and improved in ways that would not otherwise be possible.
+Here we report the release of the MIMIC-III database, an update to the widely-used MIMIC-II database \cite{cite3}. MIMIC-III integrates deidentified, comprehensive clinical data of patients admitted to the Beth Israel Deaconess Medical Center in Boston, Massachusetts, and makes it widely accessible to researchers internationally (Figure \ref{fig:mimicoverview}). The publicly available nature of the data allows clinical studies to be reproduced and improved in ways that would not otherwise be possible.
 
 Based on our experience with the previous major release of MIMIC (MIMIC-II, released in 2010) we anticipate MIMIC-III to be widely used internationally in areas such as academic and industrial research, quality improvement initiatives, and higher education coursework. To recognize the increasingly broad usage of MIMIC, we have renamed the full title of the database from "Multiparameter Intelligent Monitoring in Intensive Care" to "Medical Information Mart for Intensive Care".
 
@@ -79,7 +79,7 @@ The MIMIC-III critical care database is unique and notable for the following rea
 
 \subsection*{Patient characteristics}
 
-MIMIC-III contains data associated with 53,423 distinct admissions for adult patients (aged 16 years or above) admitted to critical care units of the Beth Israel Deaconess Medical Center in Boston, Massachusetts, between 2001 and 2012. In addition, it contains data for 7870 neonates admitted between 2001 and 2008. The data covers 38,597 distinct adult patients over 49,785 hospital admissions. The median age of adult patients is 65.8 years (Q1-Q3: 52.8 - 77.8), 55.9\% patients are male, and in-hospital mortality is 11.5\%. Median length of ICU stay is 2.1 days (Q1-Q3: 1.2 - 4.6) and median length of hospital stay is 6.9 days (Q1-Q3: 4.1 - 11.9). A mean average of 4579 charted observations ('chart events') and 380 laboratory measurements ('lab events') are available for each hospital admission. Table \ref{table:patientpopulation} provides a breakdown of the adult population by care unit.
+MIMIC-III contains data associated with 53,423 distinct admissions for adult patients (aged 16 years or above) admitted to critical care units between 2001 and 2012. In addition, it contains data for 7870 neonates admitted between 2001 and 2008. The data covers 38,597 distinct adult patients and 49,785 hospital admissions. The median age of adult patients is 65.8 years (Q1-Q3: 52.8 - 77.8), 55.9\% patients are male, and in-hospital mortality is 11.5\%. Median length of ICU stay is 2.1 days (Q1-Q3: 1.2 - 4.6) and median length of hospital stay is 6.9 days (Q1-Q3: 4.1 - 11.9). A mean average of 4579 charted observations ('chart events') and 380 laboratory measurements ('lab events') are available for each hospital admission. Table \ref{table:patientpopulation} provides a breakdown of the adult population by care unit.
 
 The primary International Classification of Diseases (ICD-9) codes from the patient discharges are listed in Table \ref{table:icddistribution}. The top three codes across hospital admissions for patients aged 16 years and above were:
 \begin{itemize}
@@ -116,11 +116,11 @@ Data available in the MIMIC-III database ranges from time-stamped, nurse-verifie
 % There is no limit to the length of the Methods section.
 % ------------------------------------ %
 
-The Laboratory for Computational Physiology at Massachusetts Institute of Technology is an interdisciplinary team of data scientists and practicing physicians, facilitating integration of both clinical and technical knowledge during research. MIMIC-III is the third iteration of the MIMIC critical care database, enabling us to draw upon prior experience \cite{cite3}.
+The Laboratory for Computational Physiology at Massachusetts Institute of Technology is an interdisciplinary team of data scientists and practicing physicians. MIMIC-III is the third iteration of the MIMIC critical care database, enabling us to draw upon prior experience with regard to data management and integration \cite{cite3}.
 
 \subsection*{Database development}
 
-The MIMIC-III database was populated with data that had been acquired during routine hospital care, so there was no associated burden on caregivers and no interference with treatment of patients. Data was downloaded from several sources, including:
+The MIMIC-III database was populated with data that had been acquired during routine hospital care, so there was no associated burden on caregivers and no interference with their workflow. Data was downloaded from several sources, including:
 \begin{itemize}
   \item archives from critical care information systems
   \item hospital electronic health record databases
@@ -146,7 +146,7 @@ The project was approved by the Institutional Review Boards of Beth Israel Deaco
 
 \subsection*{Deidentification}
 
-Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements, including fields such as patient name, telephone number, and address. Dates were shifted into the future by a random offset for each individual patient in a consistent manner, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were preserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA standards: these patients appear in the database with ages over 300. Provider and care giver identifiers were also removed and replaced with anonymous identifiers.
+Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements, including fields such as patient name, telephone number, and address. Dates were shifted into the future by a random offset for each individual patient in a consistent manner, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were preserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA regulations: these patients appear in the database with ages over 300. Provider and care giver identifiers were also removed and replaced with anonymous identifiers.
 
 Protected health information was removed from free text fields such as diagnostic reports and physician notes using an updated version of an algorithm that has been shown to have superior performance in comparison to clinicians in detecting protected health information \cite{cite5}.
 
@@ -323,11 +323,11 @@ Approval requires at least a week. Once an application has been approved the res
 
 \subsection*{Collaborative research}
 
-Our experience is that many researchers work independently to produce code for data processing and analysis. We seek to move towards a more collaborative, iterative development process where researchers work together on a shared code base. To facilitate collaboration, a public "MIMIC Code Repository" has been created to encourage researchers to develop and share code collectively: https://github.com/MIT-LCP/mimic-code \\
+Our experience is that many researchers work independently to produce code for data processing and analysis. We seek to move towards a more collaborative, iterative, and self-checking development process where researchers work together on a shared code base. To facilitate collaboration, a public "MIMIC Code Repository" has been created to encourage researchers to develop and share code collectively: https://github.com/MIT-LCP/mimic-code \\
 
-The repository has been seeded with code to calculate commonly utilised concepts in critical care research, including severity of illness scores, comorbidity scores, and durations of mechanical ventilation.
+The repository has been seeded with code to calculate commonly utilized variables in critical care research, including severity of illness scores, comorbidity scores, and durations of mechanical ventilation and vasopressor use.
 % More detail regarding the concepts derived in the repository is available \cite{?}.
-We encourage users to incorporate this code into their research, provide improvements, and make new contributions that would benefit the research community as a whole. Over time, we expect the repository to become increasingly vital for researchers working with the MIMIC-III database.
+We encourage users to incorporate this code into their research, provide improvements, and add new contributions that have potential to benefit the research community as a whole. Over time, we expect the repository to become increasingly vital for researchers working with the MIMIC-III database.
 
 % TP: we may want to assign a DOI to the MIMIC Code Repository. This would allow it to be moved in future and also allow us to track citations etc
 
