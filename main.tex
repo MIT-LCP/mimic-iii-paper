@@ -136,17 +136,17 @@ Two different critical care information systems were in place over the data coll
 Additional information was collected from hospital and laboratory health record systems, including:
 \begin{itemize}
   \item patient demographics and in-hospital mortality.
-  \item laboratory test results (for example, haematology, chemistry, and microbiology results).
+  \item laboratory test results (for example, hematology, chemistry, and microbiology results).
   \item discharge summaries and reports of electrocardiogram and imaging studies.
   \item billing-related information such as International Classification of Disease, 9th Edition (ICD-9) codes, Diagnosis Related Group (DRG) codes, and Current Procedural Terminology (CPT) codes.
 \end{itemize}
-Out-of-hospital mortality dates were obtained using the Social Security Administration Death Master File. A more detailed description of the data is shown in Table 1. Physiological waveforms obtained from bedside monitors (such as electrocardiogram, blood pressures, pulse plethysmograms, respirations) are available for a subset of patients. 
+Out-of-hospital mortality dates were obtained using the Social Security Administration Death Master File. A more detailed description of the data is shown in Table 1. Physiological waveforms obtained from bedside monitors (such as electrocardiogram, blood pressures, pulse plethysmograms, respirations) were obtained for a subset of patients. 
 
 The project was approved by the Institutional Review Boards of Beth Israel Deaconess Medical Center (Boston, MA) and the Massachusetts Institute of Technology (Cambridge, MA). Requirement for individual patient consent was waived because the project did not impact clinical care and all protected health information was deidentified.
 
 \subsection*{Deidentification}
 
-Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements, including fields such as patient name, telephone number, and address. Dates were shifted into the future by a random offset for each individual patient in a consistent manner, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were preserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA regulations: these patients appear in the database with ages over 300. Provider and care giver identifiers were also removed and replaced with anonymous identifiers.
+Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements, including fields such as patient name, telephone number, address, and dates. In particular, dates were shifted into the future by a random offset for each individual patient in a consistent manner to preserve intervals, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were conserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA regulations: these patients appear in the database with ages over 300. Provider and care giver identifiers were also removed and replaced with anonymous identifiers.
 
 Protected health information was removed from free text fields such as diagnostic reports and physician notes using an updated version of an algorithm that has been shown to have superior performance in comparison to clinicians in detecting protected health information \cite{cite5}.
 
@@ -274,9 +274,9 @@ The following tables are dictionaries:
 
 A minimal amount of processing was undertaken to achieve the desired deidentification and data structure, helping to ensure that MIMIC-III closely represents the raw data collected within the Beth Israel Deaconess Medical Center.
 
-Best practice for scientific computing was followed where possible \cite{cite4}. Code used to build MIMIC-III was version controlled and developed collaboratively within the laboratory. The approach encouraged and facilitated sharing of readable code and documentation, as well as frequent feedback from colleagues.
+Best practice for scientific computing was followed where possible \cite{cite4}. Code used to build MIMIC-III was version controlled and developed collaboratively within the laboratory. This approach encouraged and facilitated sharing of readable code and documentation, as well as frequent feedback from colleagues.
 
-Issue tracking is used to ensure that limitations of the dataset and code are clearly documented and are dealt with as appropriate. The research community is encouraged to report and address issues as they are found, and a system for releasing minor database updates is in place.
+Issue tracking is used to ensure that limitations of the data and code are clearly documented and are dealt with as appropriate. The research community is encouraged to report and address issues as they are found, and a system for releasing minor database updates is in place.
 
 % TP: some measures of quality might include:
 % TBC...
@@ -343,7 +343,7 @@ Documentation is available online (http://mimic.physionet.org) and offers functi
 % of each author to this work on a separate line.
 % ------------------------------------ %
 
-This research and development was supported by grants NIH-R01-EB017205, NIH-R01-EB001659, and NIH-R01-GW104987 from the National Institutes of Health. The authors would also like to thank Philips Healthcare and staff at the Beth Israel Deaconess Medical Center, Boston, for supporting database development, and Erin Hong for providing \ref{fig:mimicoverview}.
+This research and development was supported by grants NIH-R01-EB017205, NIH-R01-EB001659, and NIH-R01-GW104987 from the National Institutes of Health. The authors would also like to thank Philips Healthcare and staff at the Beth Israel Deaconess Medical Center, Boston, for supporting database development, and Erin Hong for providing Figure \ref{fig:mimicoverview}.
 %TODO: iMDSoft? Did they help us?
 
 \section*{Competing financial interests}
