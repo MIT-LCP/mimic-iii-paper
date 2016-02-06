@@ -216,7 +216,7 @@ MIMIC-III is a relational database consisting of 26 tables. Tables are linked by
 
 Charted events such as notes, laboratory tests, and fluid balance are stored in a series of "events" tables. For example the OUTPUTEVENTS table contains all measurements related to output for a given patient, while the LABEVENTS table contains laboratory test results for a patient.
 
-Tables prefixed with “D\_” are dimension tables and provide definitions for identifiers. For example, every row of CHARTEVENTS is associated with a single ITEMID which represents the concept measured, but it does not contain the actual name of the measurement. By joining CHARTEVENTS and D\_ITEMS on ITEMID, it is possible to identify what concept a given ITEMID represents. Further detail is provided below.
+Tables prefixed with “D\_” are dimension tables and provide definitions for identifiers. For example, every row of CHARTEVENTS is associated with a single ITEMID which represents the concept measured, but it does not contain the actual name of the measurement. By joining CHARTEVENTS and D\_ITEMS on ITEMID, it is possible to identify the concept represented by a given ITEMID. Further detail is provided below.
 
 \subsection*{Data tables}
 
