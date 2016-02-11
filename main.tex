@@ -24,7 +24,7 @@ Alistair E.W Johnson\textsuperscript{1{†}},
 Tom J. Pollard\textsuperscript{1{†}{*}},
 Lu Shen\textsuperscript{2}, \\
 Li-wei Lehman\textsuperscript{1},
-Mengling Feng\textsuperscript{1},
+Mengling Feng\textsuperscript{1,3},
 Mohammad Ghassemi\textsuperscript{1}, \\
 Benjamin Moody\textsuperscript{1},
 Leo Anthony Celi\textsuperscript{1,2},
@@ -34,7 +34,7 @@ Roger G. Mark\textsuperscript{1,2}
 \maketitle
 \thispagestyle{fancy}
 
-1. MIT Institute for Medical Engineering and Science, Massachusetts Institute of Technology, Cambridge, MA, United States 2. Beth Israel Deaconess Medical Center, Boston, MA, United States. \\ 
+1. MIT Institute for Medical Engineering and Science, Massachusetts Institute of Technology, Cambridge, MA, United States 2. Beth Israel Deaconess Medical Center, Boston, MA, United States. 3. Institute for Infocomm Research, A*STAR, Singapore \\ 
 \\
 {*}Corresponding author: Tom Pollard (tpollard@mit.edu). \\
 {†}Authors contributed equally.
@@ -64,9 +64,9 @@ MIMIC-III is a large, single-center database comprising information relating to 
 
 In recent years there has been a concerted move towards the adoption of digital health record systems in hospitals. In the US, for example, the number of non-federal acute care hospitals with basic digital systems increased from 9.4\% to 75.5\% over the 7 year period between 2008 and 2014 \cite{cite1}.
 
-Despite this advance, interoperability of digital systems remains inadequate, leading to challenges in data integration. As a result, the potential that hospital data offers in terms of understanding and improving care is yet to be fully realized. In parallel, the scientific research community is increasingly coming under criticism for the lack of reproducibility of studies \cite{cite2}.
+Despite this advance, interoperability of digital systems remains an open issue, leading to challenges in data integration. As a result, the potential that hospital data offers in terms of understanding and improving care is yet to be fully realized. In parallel, the scientific research community is increasingly coming under criticism for the lack of reproducibility of studies \cite{cite2}.
 
-Here we report the release of the MIMIC-III database, an update to the widely-used MIMIC-II database \cite{cite3}. MIMIC-III integrates deidentified, comprehensive clinical data of patients admitted to the Beth Israel Deaconess Medical Center in Boston, Massachusetts, and makes it widely accessible to researchers internationally (Figure \ref{fig:mimicoverview}). The publicly available nature of the data allows clinical studies to be reproduced and improved in ways that would not otherwise be possible.
+Here we report the release of the MIMIC-III database, an update to the widely-used MIMIC-II database \cite{cite3}. MIMIC-III integrates deidentified, comprehensive clinical data of patients admitted to the Beth Israel Deaconess Medical Center in Boston, Massachusetts, and makes it widely accessible to researchers internationally under a data use agreement (Figure \ref{fig:mimicoverview}). The open nature of the data allows clinical studies to be reproduced and improved in ways that would not otherwise be possible.
 
 Based on our experience with the previous major release of MIMIC (MIMIC-II, released in 2010) we anticipate MIMIC-III to be widely used internationally in areas such as academic and industrial research, quality improvement initiatives, and higher education coursework. To recognize the increasingly broad usage of MIMIC, we have renamed the full title of the database from "Multiparameter Intelligent Monitoring in Intensive Care" to "Medical Information Mart for Intensive Care".
 
@@ -146,9 +146,7 @@ The project was approved by the Institutional Review Boards of Beth Israel Deaco
 
 \subsection*{Deidentification}
 
-Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements, including fields such as patient name, telephone number, address, and dates. In particular, dates were shifted into the future by a random offset for each individual patient in a consistent manner to preserve intervals, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were conserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA regulations: these patients appear in the database with ages over 300. Provider and care giver identifiers were also removed and replaced with anonymous identifiers.
-
-Protected health information was removed from free text fields such as diagnostic reports and physician notes using an updated version of an algorithm that has been shown to have superior performance in comparison to clinicians in detecting protected health information \cite{cite5}.
+Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements, including fields such as patient name, telephone number, address, and dates. In particular, dates were shifted into the future by a random offset for each individual patient in a consistent manner to preserve intervals, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were conserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA regulations: these patients appear in the database with ages of over 300 years. Provider and care giver identifiers were also removed and replaced with anonymous identifiers. Protected health information was removed from free text fields, such as diagnostic reports and physician notes, using a deidentification system based on dictionary look-ups, regular expressions, and heuristics \cite{cite5}.
 
 \subsection*{Code availability}
 
