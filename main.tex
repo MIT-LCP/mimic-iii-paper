@@ -40,7 +40,7 @@ Roger G. Mark\textsuperscript{1,2}
 {†}Authors contributed equally.
 
 \begin{abstract} % 170 words
-MIMIC-III is a large, single-center database comprising information relating to patients admitted to critical care units at a large tertiary hospital. Data includes vital signs, medications, laboratory measurements, observations and notes charted by clinicians, fluid balance, procedure codes, diagnostic codes, imaging reports, hospital length of stay, survival data, and more. The database supports areas including academic and industrial research, quality improvement initiatives, and higher education coursework.
+MIMIC-III is a large, single-center database comprising information relating to patients admitted to critical care units at a large tertiary care hospital. Data includes vital signs, medications, laboratory measurements, observations and notes charted by clinicians, fluid balance, procedure codes, diagnostic codes, imaging reports, hospital length of stay, survival data, and more. The database supports applications including academic and industrial research, quality improvement initiatives, and higher education coursework.
 \end{abstract}
 
 \section*{Background \& summary} % 700 words
@@ -74,12 +74,12 @@ The MIMIC-III critical care database is unique and notable for the following rea
 \begin{itemize}
   \item it is the only freely accessible critical care database of its kind;
   \item the dataset spans more than a decade, with detailed information about individual patient care;
-  \item access is unrestricted once a data user agreement is accepted, enabling clinical research and education around the world.
+  \item access is unrestricted once a data use agreement is accepted, enabling clinical research and education around the world.
 \end{itemize}
 
 \subsection*{Patient characteristics}
 
-MIMIC-III contains data associated with 53,423 distinct admissions for adult patients (aged 16 years or above) admitted to critical care units between 2001 and 2012. In addition, it contains data for 7870 neonates admitted between 2001 and 2008. The data covers 38,597 distinct adult patients and 49,785 hospital admissions. The median age of adult patients is 65.8 years (Q1-Q3: 52.8 - 77.8), 55.9\% patients are male, and in-hospital mortality is 11.5\%. Median length of ICU stay is 2.1 days (Q1-Q3: 1.2 - 4.6) and median length of hospital stay is 6.9 days (Q1-Q3: 4.1 - 11.9). A mean average of 4579 charted observations ('chart events') and 380 laboratory measurements ('lab events') are available for each hospital admission. Table \ref{table:patientpopulation} provides a breakdown of the adult population by care unit.
+MIMIC-III contains data associated with 53,423 distinct hospital admissions for adult patients (aged 16 years or above) admitted to critical care units between 2001 and 2012. In addition, it contains data for 7870 neonates admitted between 2001 and 2008. The data covers 38,597 distinct adult patients and 49,785 hospital admissions. The median age of adult patients is 65.8 years (Q1-Q3: 52.8 - 77.8), 55.9\% patients are male, and in-hospital mortality is 11.5\%. Median length of ICU stay is 2.1 days (Q1-Q3: 1.2 - 4.6) and median length of hospital stay is 6.9 days (Q1-Q3: 4.1 - 11.9). A mean of 4579 charted observations ('chartevents') and 380 laboratory measurements ('labevents') are available for each hospital admission. Table \ref{table:patientpopulation} provides a breakdown of the adult population by care unit.
 
 The primary International Classification of Diseases (ICD-9) codes from the patient discharges are listed in Table \ref{table:icddistribution}. The top three codes across hospital admissions for patients aged 16 years and above were:
 \begin{itemize}
@@ -128,7 +128,7 @@ The MIMIC-III database was populated with data that had been acquired during rou
 \end{itemize}
 Two different critical care information systems were in place over the data collection period: Philips CareVue Clinical Information System (models M2331A and M1215A; Philips Health-care, Andover, MA) and iMDsoft MetaVision ICU (iMDsoft, Needham, MA). These systems were the source of clinical data such as:
 \begin{itemize}
-  \item time-stamped nurse-verified physiological measurements (e.g. hourly documentation of heart rate, arterial blood pressure, or respiratory rate);
+  \item time-stamped nurse-verified physiological measurements (for example, hourly documentation of heart rate, arterial blood pressure, or respiratory rate);
   \item caregiver documented progress notes;
   \item continuous intravenous drip medications and fluid balances.
 \end{itemize}
@@ -243,7 +243,7 @@ The following tables contain data associated with each patient:
   \item INPUTEVENTS\_CV: Intake for patients monitored using the Philips CareVue system while in the ICU.
   \item INPUTEVENTS\_MV: Intake for patients monitored using the iMDSoft MetaVision system while in the ICU.
   \item OUTPUTEVENTS: Output information for patients while in the ICU.
-  \item LABEVENTS: Laboratory measurements for patients both within the hospital and in outpatient clinics following hospital discharge.
+  \item LABEVENTS: Laboratory measurements for patients both within the hospital and in outpatient clinics.
   \item MICROBIOLOGYEVENTS: Microbiology culture results and antibiotic sensitivities from the hospital database.
   \item NOTEEVENTS: Deidentified notes, including nursing and physician notes, ECG reports, radiology reports, and discharge summaries.
   \item PRESCRIPTIONS: Medications ordered for a given patient.
@@ -255,10 +255,10 @@ The following tables are dictionaries:
 
 \begin{itemize}
   \item D\_CPT: High level dictionary of Current Procedural Terminology (CPT) codes.
-  \item D\_ICD\_DIAGNOSES: Dictionary of International Statistical Classification of Diseases and Related Health Problems (ICD) codes relating to diagnoses.
-  \item D\_ICD\_PROCEDURES: Dictionary of International Statistical Classification of Diseases and Related Health Problems (ICD) codes relating to procedures.
-  \item D\_ITEMS: Dictionary of ITEMIDs appearing in the MIMIC database, except those that relate to laboratory tests.
-  \item D\_LABITEMS: Dictionary of ITEMIDs appearing in the MIMIC database that relate to laboratory tests.
+  \item D\_ICD\_DIAGNOSES: Dictionary of International Statistical Classification of Diseases and Related Health Problems (ICD-9) codes relating to diagnoses.
+  \item D\_ICD\_PROCEDURES: Dictionary of International Statistical Classification of Diseases and Related Health Problems (ICD-9) codes relating to procedures.
+  \item D\_ITEMS: Dictionary of local codes ('ITEMIDs') appearing in the MIMIC database, except those that relate to laboratory tests.
+  \item D\_LABITEMS: Dictionary of local codes ('ITEMIDs') appearing in the MIMIC database that relate to laboratory tests.
 \end{itemize}
 
 
