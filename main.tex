@@ -133,7 +133,7 @@ Two different critical care information systems were in place over the data coll
   \item continuous intravenous drip medications and fluid balances.
 \end{itemize}
 
-With exception to data relating to fluid intake, which differed significantly in structure between the CareVue and MetaVision systems, data was merged when building the database tables. Additional information was collected from hospital and laboratory health record systems, including:
+With exception to data relating to fluid intake, which differed significantly in structure between the CareVue and MetaVision systems, data was merged when building the database tables. Data which could not be merged is given a suffix to denote the data source. For example, inputs for patients monitored with the CareVue system are stored in INPUTEVENTS\_CV, whereas inputs for patients monitored with the Metavision system are stored in INPUTEVENTS\_MV. Additional information was collected from hospital and laboratory health record systems, including:
 \begin{itemize}
   \item patient demographics and in-hospital mortality.
   \item laboratory test results (for example, hematology, chemistry, and microbiology results).
@@ -146,7 +146,7 @@ The project was approved by the Institutional Review Boards of Beth Israel Deaco
 
 \subsection*{Deidentification}
 
-Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements, including fields such as patient name, telephone number, address, and dates. In particular, dates were shifted into the future by a random offset for each individual patient in a consistent manner to preserve intervals, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were conserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA regulations: these patients appear in the database with ages of over 300 years. Provider and care giver identifiers were also removed and replaced with anonymous identifiers. Protected health information was removed from free text fields, such as diagnostic reports and physician notes, using a deidentification system based on dictionary look-ups, regular expressions, and heuristics \cite{cite5}.
+Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements, including fields such as patient name, telephone number, address, and dates. In particular, dates were shifted into the future by a random offset for each individual patient in a consistent manner to preserve intervals, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were conserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA regulations: these patients appear in the database with ages of over 300 years. Protected health information was removed from free text fields such as diagnostic reports and physician notes using a rigorously evaluated de-identification system based on extensive dictionary look-ups and pattern-matching with regular expressions \cite{cite5}.
 
 \subsection*{Code availability}
 
@@ -238,8 +238,8 @@ The following tables contain data associated with each patient:
   \item DATETIMEEVENTS: All recorded observations which are dates, for example time of dialysis or insertion of lines.
   \item DIAGNOSES\_ICD: Hospital assigned diagnoses, coded using the International Statistical Classification of Diseases and Related Health Problems (ICD) system.
   \item DRGCODES: Diagnosis Related Groups (DRG), which are used by the hospital for billing purposes.
-  \item INPUTEVENTS\_CV: Intake for patients monitored using the Philips CareVue system while in the ICU.
-  \item INPUTEVENTS\_MV: Intake for patients monitored using the iMDSoft MetaVision system while in the ICU.
+  \item INPUTEVENTS\_CV: Intake for patients monitored using the Philips CareVue system while in the ICU, e.g. intravenous medications, enteral feeding, etc.
+  \item INPUTEVENTS\_MV: Intake for patients monitored using the iMDSoft MetaVision system while in the ICU, e.g. intravenous medications, enteral feeding, etc.
   \item OUTPUTEVENTS: Output information for patients while in the ICU.
   \item LABEVENTS: Laboratory measurements for patients both within the hospital and in outpatient clinics.
   \item MICROBIOLOGYEVENTS: Microbiology culture results and antibiotic sensitivities from the hospital database.
