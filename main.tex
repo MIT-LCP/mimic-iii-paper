@@ -17,7 +17,9 @@
 \begin{document}
 
 % Data Descriptor Title (110 character maximum, inc. spaces)
-\title{Medical Information Mart for Intensive Care (MIMIC-III): the public access critical care database}
+\title{MIMIC-III, a public access database of critical medical care}
+
+% TP: response to review. Updated title as suggested.
 
 \author{
 Alistair E.W Johnson\textsuperscript{1{†}},
@@ -67,7 +69,7 @@ In recent years there has been a concerted move towards the adoption of digital 
 
 Despite this advance, interoperability of digital systems remains an open issue, leading to challenges in data integration. As a result, the potential that hospital data offers in terms of understanding and improving care is yet to be fully realized. In parallel, the scientific research community is increasingly coming under criticism for the lack of reproducibility of studies \cite{cite2}.
 
-Here we report the release of the MIMIC-III database, an update to the widely-used MIMIC-II database \cite{cite3}. MIMIC-III integrates deidentified, comprehensive clinical data of patients admitted to the Beth Israel Deaconess Medical Center in Boston, Massachusetts, and makes it widely accessible to researchers internationally under a data use agreement (Figure \ref{fig:mimicoverview}). The open nature of the data allows clinical studies to be reproduced and improved in ways that would not otherwise be possible.
+Here we report the release of the MIMIC-III database, an update to the widely-used MIMIC-II database \cite{cite3}. MIMIC-III integrates deidentified, comprehensive clinical data of patients admitted to the Beth Israel Deaconess Medical Center in Boston, Massachusetts, and makes it widely accessible to researchers internationally under a data use agreement (Figure \ref{figure:mimicoverview}). The open nature of the data allows clinical studies to be reproduced and improved in ways that would not otherwise be possible.
 
 Based on our experience with the previous major release of MIMIC (MIMIC-II, released in 2010) we anticipate MIMIC-III to be widely used internationally in areas such as academic and industrial research, quality improvement initiatives, and higher education coursework. To recognize the increasingly broad usage of MIMIC, we have renamed the full title of the database from "Multiparameter Intelligent Monitoring in Intensive Care" to "Medical Information Mart for Intensive Care".
 
@@ -97,7 +99,7 @@ The primary International Classification of Diseases (ICD-9) codes from the pati
 
 \subsection*{Classes of data}
 
-Data available in the MIMIC-III database ranges from time-stamped, nurse-verified physiological measurements made at the bedside to free-text interpretations of imaging studies provided by the radiology department. Table \ref{table:dataclasses} gives an overview of the different classes of data available. Figure \ref{fig:examplepatient} shows sample data for a single patient stay in a medical intensive care unit. The patient, who was undergoing a course of chemotherapy at the time of admission, presented with febrile neutropenia, anemia, and thrombocytopenia.
+Data available in the MIMIC-III database ranges from time-stamped, nurse-verified physiological measurements made at the bedside to free-text interpretations of imaging studies provided by the radiology department. Table \ref{table:dataclasses} gives an overview of the different classes of data available. Figure \ref{figure:examplepatient} shows sample data for a single patient stay in a medical intensive care unit. The patient, who was undergoing a course of chemotherapy at the time of admission, presented with febrile neutropenia, anemia, and thrombocytopenia.
 
 \section*{Methods}
 
@@ -141,7 +143,7 @@ With exception to data relating to fluid intake, which differed significantly in
   \item discharge summaries and reports of electrocardiogram and imaging studies.
   \item billing-related information such as International Classification of Disease, 9th Edition (ICD-9) codes, Diagnosis Related Group (DRG) codes, and Current Procedural Terminology (CPT) codes.
 \end{itemize}
-Out-of-hospital mortality dates were obtained using the Social Security Administration Death Master File. A more detailed description of the data is shown in Table 1. Physiological waveforms obtained from bedside monitors (such as electrocardiogram, blood pressures, pulse plethysmograms, respirations) were obtained for a subset of patients. 
+Out-of-hospital mortality dates were obtained using the Social Security Administration Death Master File. A more detailed description of the data is shown in Table \ref{table:patientpopulation}. Physiological waveforms obtained from bedside monitors (such as electrocardiogram, blood pressures, pulse plethysmograms, respirations) were obtained for a subset of patients. 
 
 The project was approved by the Institutional Review Boards of Beth Israel Deaconess Medical Center (Boston, MA) and the Massachusetts Institute of Technology (Cambridge, MA). Requirement for individual patient consent was waived because the project did not impact clinical care and all protected health information was deidentified.
 
@@ -342,7 +344,7 @@ Documentation is available online (http://mimic.physionet.org) and offers functi
 % of each author to this work on a separate line.
 % ------------------------------------ %
 
-This research and development was supported by grants NIH-R01-EB017205, NIH-R01-EB001659, and NIH-R01-GW104987 from the National Institutes of Health. The authors would also like to thank Philips Healthcare and staff at the Beth Israel Deaconess Medical Center, Boston, for supporting database development, and Ken Pierce for providing Figure \ref{fig:mimicoverview}.
+This research and development was supported by grants NIH-R01-EB017205, NIH-R01-EB001659, and NIH-R01-GW104987 from the National Institutes of Health. The authors would also like to thank Philips Healthcare and staff at the Beth Israel Deaconess Medical Center, Boston, for supporting database development, and Ken Pierce for providing Figure \ref{figure:mimicoverview}.
 
 \section*{Competing financial interests}
 
@@ -366,20 +368,22 @@ The authors declare no competing financial interests.
 % than 350 words, and may contain literature references.
 % ------------------------------------ %
 
-\begin{center}
+% TP: response to reviewers. Fixed bug to display figure number in text.
 
+\begin{center}
 \begin{figure}
 \includegraphics[width=\textwidth]{MIMICData.png}
-\label{fig:mimicoverview}
 \caption{Overview of the MIMIC-III critical care database.}
+\label{figure:mimicoverview}
 \end{figure}
+\end{center}
 
+\begin{center}
 \begin{figure}
 \includegraphics[width=\textwidth]{examplepatient.jpeg}
-\label{fig:examplepatient}
 \caption{Sample data for a single patient stay in a medical intensive care unit. GCS is Glasgow Coma Scale; NIBP is non-invasive blood pressure; and O2 saturation is Oxygen saturation.}
+\label{figure:examplepatient}
 \end{figure}
-
 \end{center}
 
 \section*{Tables}
@@ -400,35 +404,6 @@ The authors declare no competing financial interests.
 % Maximum of three tables included in the PDF (up to 10 in total)
 
 % Table 1:
-%	Overview of MIMIC-III
-
-\begin{center}
-\begin{table}
-\begin{tabular}{|l|p{8cm}|}
-    \hline
-    Class of data & Description \\
-    \hline
-    Descriptive & Demographic detail, admission and discharge times, and dates of death. \\
-    \hline
-    Procedure and billing & Current Procedural Terminology (CPT) codes, Diagnosis-Related Group (DRG) codes, and International Classification of Diseases (ICD) codes. \\
-    \hline
-    Physiologic & Nurse-verified vital signs, approximately hourly (e.g. heart rate, blood pressure, respiratory rate). \\
-    \hline
-    Laboratory & Blood chemistry, hematology, urine analysis, and microbiology test results. \\
-    \hline
-    Medications & Administration records of intravenous medications and medication orders. \\
-    \hline
-    Reports & Free text reports of electrocardiogram and imaging studies. \\
-    \hline
-    Notes & Free text notes such as provider progress notes and hospital discharge summaries. \\
-    \hline
-\end{tabular}
-\caption{Classes of data available in the MIMIC-III critical care database.}
-\label{table:dataclasses}
-\end{table}
-\end{center}
-
-% Table 2:
 %	Demographics of the database
 \begin{center}
 \begin{table}
@@ -460,7 +435,7 @@ The authors declare no competing financial interests.
 \end{table}
 \end{center}
 
-% Table 3:
+% Table 2:
 % Distribution of ICD-9 codes
 
 \begin{center}
@@ -512,8 +487,36 @@ The authors declare no competing financial interests.
 \end{table}
 \end{center}
 
-% Table 4:
-%	Summary of the amount of data available
+% TP: response to reviewers. Move table so that it appears in correct order.
+
+% Table 3:
+%	Overview of MIMIC-III
+
+\begin{center}
+\begin{table}
+\begin{tabular}{|l|p{8cm}|}
+    \hline
+    Class of data & Description \\
+    \hline
+    Descriptive & Demographic detail, admission and discharge times, and dates of death. \\
+    \hline
+    Procedure and billing & Current Procedural Terminology (CPT) codes, Diagnosis-Related Group (DRG) codes, and International Classification of Diseases (ICD) codes. \\
+    \hline
+    Physiologic & Nurse-verified vital signs, approximately hourly (e.g. heart rate, blood pressure, respiratory rate). \\
+    \hline
+    Laboratory & Blood chemistry, hematology, urine analysis, and microbiology test results. \\
+    \hline
+    Medications & Administration records of intravenous medications and medication orders. \\
+    \hline
+    Reports & Free text reports of electrocardiogram and imaging studies. \\
+    \hline
+    Notes & Free text notes such as provider progress notes and hospital discharge summaries. \\
+    \hline
+\end{tabular}
+\caption{Classes of data available in the MIMIC-III critical care database.}
+\label{table:dataclasses}
+\end{table}
+\end{center}
 
 \begin{thebibliography}{1}
 \expandafter\ifx\csname url\endcsname\relax
@@ -597,7 +600,20 @@ among U.S. Non-federal Acute Care Hospitals}}.
 
 % Bibliographic information for the data records described in the manuscript.
 
-% MIMIC-III database. doi:10.13026/C2XW26
-1. Pollard, TJ \& Johnson, AEW. The MIMIC III Clinical Database. \emph{PhysioNet} http://dx.doi.org/10.13026/C2XW26 (2015).
+% TP: response to reviewers. Update mimic reference.
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{mimic-iii}
+\bibinfo{author}{Pollard, T.J.} \& \bibinfo{author}{Johnson, A.E.W.}
+\newblock \bibinfo{title}{{The MIMIC-III Clinical Database.}}
+\newblock \emph{\bibinfo{journal}{PhysioNet}}
+\newblock \emph{\bibinfo{url}{http://dx.doi.org/10.13026/C2XW26}}
+\bibinfo{year}{2015}
+\end{thebibliography}
 
 \end{document}
