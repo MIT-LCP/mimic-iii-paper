@@ -78,7 +78,6 @@ Based on our experience with the previous major release of MIMIC (MIMIC-II, rele
 % offering insight into areas such as X, X, and X.
 % MIMIC-II is currently used in numerous university courses, including ones at
 % Stanford, Georgia Tech, and Columbia [ref]. 
-% 
 
 To recognize the increasingly broad usage of MIMIC, we have renamed the full title of the database from "Multiparameter Intelligent Monitoring in Intensive Care" to "Medical Information Mart for Intensive Care". The MIMIC-III critical care database is unique and notable for the following reasons:
 \begin{itemize}
@@ -156,7 +155,11 @@ The project was approved by the Institutional Review Boards of Beth Israel Deaco
 
 \subsection*{Deidentification}
 
-Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements, including fields such as patient name, telephone number, address, and dates. In particular, dates were shifted into the future by a random offset for each individual patient in a consistent manner to preserve intervals, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were conserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA regulations: these patients appear in the database with ages of over 300 years. Protected health information was removed from free text fields such as diagnostic reports and physician notes using a rigorously evaluated de-identification system based on extensive dictionary look-ups and pattern-matching with regular expressions \cite{cite5}.
+Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements, including fields such as patient name, telephone number, address, and dates. In particular, dates were shifted into the future by a random offset for each individual patient in a consistent manner to preserve intervals, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were conserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA regulations: these patients appear in the database with ages of over 300 years. 
+
+Protected health information was removed from free text fields such as diagnostic reports and physician notes using a rigorously evaluated de-identification system based on extensive dictionary look-ups and pattern-matching with regular expressions \cite{cite5}.
+
+% TP: add more detail on deidentification here.
 
 \subsection*{Code availability}
 
@@ -227,7 +230,11 @@ Tables prefixed with “D\_” are dictionary tables and provide definitions for
 
 \subsection*{Data tables}
 
-Table \ref{table:mimictables} describes how data is distributed across the database tables. Broadly speaking, five tables are used to define and track patient stays: ADMISSIONS; PATIENTS; ICUSTAYS; SERVICES; and TRANSFERS. The following sixteen tables contain data associated with each patient, such as physiological measurements and caregiver observations: CALLOUT; CAREGIVERS; CHARTEVENTS; CPTEVENTS; DATETIMEEVENTS; DIAGNOSES\_ICD; DRGCODES; INPUTEVENTS\_CV; INPUTEVENTS\_MV; OUTPUTEVENTS; LABEVENTS; MICROBIOLOGYEVENTS; NOTEEVENTS; PRESCRIPTIONS; PROCEDUREEVENTS\_MV; and PROCEDURES\_ICD. Finally, the following five tables are dictionaries that are used to cross-reference codes against their respective definition: D\_CPT; D\_ICD\_DIAGNOSES; D\_ICD\_PROCEDURES; D\_ITEMS; and D\_LABITEMS.
+Developing the MIMIC data model involved balancing simplicity of interpretation against closeness to ground truth. As such, the model is a reflection of underlying data sources, modified over iterations of the MIMIC database in response to user feedback. Table \ref{table:mimictables} describes how data is distributed across the data tables. Care has been taken to avoid making assumptions about the underlying data when carrying out transformations, so MIMIC-III closely represents the raw hospital data.
+
+Broadly speaking, five tables are used to define and track patient stays: ADMISSIONS; PATIENTS; ICUSTAYS; SERVICES; and TRANSFERS. Another five tables are dictionaries for cross-referencing codes against their respective definitions: D\_CPT; D\_ICD\_DIAGNOSES; D\_ICD\_PROCEDURES; D\_ITEMS; and D\_LABITEMS. The remaining tables contain data associated with patient care, such as physiological measurements, caregiver observations, and billing information.
+
+In some cases it would be possible to merge tables - for example, the D\_ICD\_PROCEDURES and CPTEVENTS tables both contain detail relating to procedures and could be combined - but our approach is to keep the tables independent for clarity, since the data sources are significantly different. Rather than combining the tables within MIMIC data model, we suggest researchers develop database views and transforms as appropriate.
 
 \section*{Technical validation}
 
@@ -290,6 +297,8 @@ Approval requires at least a week. Once an application has been approved the res
 
 \subsection*{Example usage}
 
+Documentation for the MIMIC database is available online (http://mimic.physionet.org). The content is under continuous development and the website includes functionality that enables the research community to directly submit updates and improvements via Github "Pull requests".
+
 TP: add detail here about past studies using MIMIC-II. Also discuss projects in progress on MIMIC-III, as well as datathons and education. datathon \cite{cite7}.
 
 % Course examples:
@@ -305,15 +314,17 @@ TP: add detail here about past studies using MIMIC-II. Also discuss projects in 
 
 \subsection*{Collaborative research}
 
-Our experience is that many researchers work independently to produce code for data processing and analysis. We seek to move towards a more collaborative, iterative, and self-checking development process where researchers work together on a shared code base. To facilitate collaboration, a public "MIMIC Code Repository" has been created to encourage researchers to develop and share code collectively: https://github.com/MIT-LCP/mimic-code \\
+Our experience is that many researchers work independently to produce code for data processing and analysis. We seek to move towards a more collaborative, iterative, and self-checking development process where researchers work together on a shared code base. To facilitate collaboration, a public "MIMIC Code Repository" has been created to encourage researchers to develop and share code collectively: https://github.com/MIT-LCP/mimic-code. 
 
-The repository has been seeded with code to calculate commonly utilized variables in critical care research, including severity of illness scores, comorbidity scores, and durations of mechanical ventilation and vasopressor use.
+The repository has been seeded with code to calculate commonly utilized variables in critical care research, including severity of illness scores, comorbidity scores, and durations of mechanical ventilation and vasopressor use. We encourage users to incorporate this code into their research, provide improvements, and add new contributions that have potential to benefit the research community as a whole. Over time, we expect the repository to become increasingly vital for researchers working with the MIMIC-III database.
+
+Alongside work on the centralised codebase, we support efforts to transform MIMIC into common data models such the Observational Medical Outcomes Partnership Common Data Model (OMOP-CDM) \cite{cite8}. Developing these common models may help to facilitate integration with complementary datasets and to enable the application of generalised analytic tools. Important efforts to map concepts to standardised clinical ontologies are also underway.
+
+% http://www.ohdsi.org/data-standardization/the-common-data-model/ 
+
 % More detail regarding the concepts derived in the repository is available \cite{?}.
-We encourage users to incorporate this code into their research, provide improvements, and add new contributions that have potential to benefit the research community as a whole. Over time, we expect the repository to become increasingly vital for researchers working with the MIMIC-III database.
 
 % TP: we may want to assign a DOI to the MIMIC Code Repository. This would allow it to be moved in future and also allow us to track citations etc
-
-Documentation is available online (http://mimic.physionet.org) and offers functionality that allows members of the research community to directly submit updates and improvements to the content. Finally, a forum is provided to facilitate discussion.
 
 \section*{Acknowledgements}
 
@@ -326,6 +337,10 @@ Documentation is available online (http://mimic.physionet.org) and offers functi
 % ------------------------------------ %
 
 This research and development was supported by grants NIH-R01-EB017205, NIH-R01-EB001659, and NIH-R01-GW104987 from the National Institutes of Health. The authors would also like to thank Philips Healthcare and staff at the Beth Israel Deaconess Medical Center, Boston, for supporting database development, and Ken Pierce for providing Figure 1.
+
+\section*{Author contributions}
+
+AEWJ, TJP, and LS built the MIMIC-III database. LS and LW carried out de-identification. All authors gave feedback during the database development process and contributed to writing the paper. 
 
 \section*{Competing financial interests}
 
@@ -357,8 +372,6 @@ The authors declare no competing financial interests.
 \noindent
 \textbf{Figure 2}: Sample data for a single patient stay in a medical intensive care unit. GCS is Glasgow Coma Scale; NIBP is non-invasive blood pressure; and O2 saturation is blood oxygen saturation.
 
-\section*{Tables}
-
 % Tables supporting the Data Descriptor. These can provide summary information
 % (sample numbers, demographics, etc.), but they should generally not
 % be used to present primary data (i.e. measurements). Tables containing
@@ -369,8 +382,7 @@ The authors declare no competing financial interests.
 % should be included here. Generally, a Data Descriptor should have
 % fewer than ten Tables, but more may be allowed when needed. Tables
 % may be of any size, but only Tables which fit onto a single printed
-% page will be included in the PDF version of the article (up to a maximum
-% of three).
+% page will be included in the PDF version of the article (up to a maximum of three).
 
 % Maximum of three tables included in the PDF (up to 10 in total)
 
@@ -411,7 +423,7 @@ The authors declare no competing financial interests.
 
 \begin{center}
 \begin{table}
-\begin{tabular}{|p{4.0cm}|p{1.25cm}|p{1.25cm}|p{1.25cm}|p{1.25cm}|p{1.25cm}|p{1.25cm}|}
+\begin{tabular}{|p{3.9cm}|p{1.25cm}|p{1.25cm}|p{1.25cm}|p{1.25cm}|p{1.25cm}|p{1.25cm}|}
     \hline
     Critical care unit &
     CCU stays, No. (\% by unit) &
@@ -453,7 +465,7 @@ The authors declare no competing financial interests.
     Total & 7,188 (14.6\%) & 9,080 (18.5\%) & 19,391 (39.5\%) & 7,989 (16.3\%) & 5,435 (11.1\%) & 49,083 (100\%) \\
     \hline
 \end{tabular}
-\caption{Distribution of primary International Classification of Diseases, 9th Edition (ICD-9) codes by critical care unit for patients aged 16 years and above. CCU is Coronary Care Unit; CSRU is Cardiac Surgery Recovery Unit; MICU is Medical Intensive Care Unit; SICU is Surgical Intensive Care Unit; TSICU is Trauma Surgical Intensive Care Unit.}
+\caption{Distribution of primary International Classification of Diseases, 9th Edition (ICD-9) codes by care unit for patients aged 16 years and above. CCU is Coronary Care Unit; CSRU is Cardiac Surgery Recovery Unit; MICU is Medical Intensive Care Unit; SICU is Surgical Intensive Care Unit; TSICU is Trauma Surgical Intensive Care Unit.}
 \label{table:icddistribution}
 \end{table}
 \end{center}
@@ -554,6 +566,7 @@ The authors declare no competing financial interests.
 \end{table}
 \end{center}
 
+\clearpage 
 \begin{thebibliography}{1}
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -642,6 +655,11 @@ among U.S. Non-federal Acute Care Hospitals}}.
 \newblock \emph{\bibinfo{journal}{Science Translational Medicine}}
   \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{333--ps8}
   (\bibinfo{year}{2016}).
+  
+\bibitem{cite8}
+\newblock \bibinfo{title}{{Observational Medical Outcomes Partnership - Common Data Model.}}
+\newblock \emph{\bibinfo{journal}{Website}}
+(\bibinfo{year}{Accessed: March 2016}).
   
 \section*{Data Citations}
 
