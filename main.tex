@@ -17,7 +17,7 @@
 \begin{document}
 
 % Data Descriptor Title (110 character maximum, inc. spaces)
-\title{MIMIC-III, a public access database of critical medical care}
+\title{MIMIC-III, a freely-available, highly-detailed database for critical care research}
 
 % TP: response to review. Updated title as suggested.
 
@@ -43,7 +43,7 @@ Roger G. Mark\textsuperscript{1,2}
 {†}Authors contributed equally.
 
 \begin{abstract} % 170 words
-MIMIC-III is a large, single-center database comprising information relating to patients admitted to critical care units at a large tertiary care hospital. Data includes vital signs, medications, laboratory measurements, observations and notes charted by clinicians, fluid balance, procedure codes, diagnostic codes, imaging reports, hospital length of stay, survival data, and more. The database supports applications including academic and industrial research, quality improvement initiatives, and higher education coursework.
+MIMIC-III ("Medical Information Mart for Intensive Care") is a large, single-center database comprising information relating to patients admitted to critical care units at a large tertiary care hospital. Data includes vital signs, medications, laboratory measurements, observations and notes charted by clinicians, fluid balance, procedure codes, diagnostic codes, imaging reports, hospital length of stay, survival data, and more. The database supports applications including academic and industrial research, quality improvement initiatives, and higher education coursework.
 \end{abstract}
 
 \section*{Background \& summary} % 700 words
@@ -69,15 +69,22 @@ In recent years there has been a concerted move towards the adoption of digital 
 
 Despite this advance, interoperability of digital systems remains an open issue, leading to challenges in data integration. As a result, the potential that hospital data offers in terms of understanding and improving care is yet to be fully realized. In parallel, the scientific research community is increasingly coming under criticism for the lack of reproducibility of studies \cite{cite2}.
 
-Here we report the release of the MIMIC-III database, an update to the widely-used MIMIC-II database \cite{cite3}. MIMIC-III integrates deidentified, comprehensive clinical data of patients admitted to the Beth Israel Deaconess Medical Center in Boston, Massachusetts, and makes it widely accessible to researchers internationally under a data use agreement (Figure \ref{figure:mimicoverview}). The open nature of the data allows clinical studies to be reproduced and improved in ways that would not otherwise be possible.
+Here we report the release of the MIMIC-III database, an update to the widely-used MIMIC-II database \cite{cite3}. MIMIC-III integrates deidentified, comprehensive clinical data of patients admitted to the Beth Israel Deaconess Medical Center in Boston, Massachusetts, and makes it widely accessible to researchers internationally under a data use agreement (Figure 1). The open nature of the data allows clinical studies to be reproduced and improved in ways that would not otherwise be possible.
 
-Based on our experience with the previous major release of MIMIC (MIMIC-II, released in 2010) we anticipate MIMIC-III to be widely used internationally in areas such as academic and industrial research, quality improvement initiatives, and higher education coursework. To recognize the increasingly broad usage of MIMIC, we have renamed the full title of the database from "Multiparameter Intelligent Monitoring in Intensive Care" to "Medical Information Mart for Intensive Care".
+Based on our experience with the previous major release of MIMIC (MIMIC-II, released in 2010) we anticipate MIMIC-III to be widely used internationally in areas such as academic and industrial research, quality improvement initiatives, and higher education coursework. 
 
-The MIMIC-III critical care database is unique and notable for the following reasons:
+% TP: add examples of usage to the previous paragraph.
+% Numerous papers have been published using MIMIC data over the past decade, 
+% offering insight into areas such as X, X, and X.
+% MIMIC-II is currently used in numerous university courses, including ones at
+% Stanford, Georgia Tech, and Columbia [ref]. 
+% 
+
+To recognize the increasingly broad usage of MIMIC, we have renamed the full title of the database from "Multiparameter Intelligent Monitoring in Intensive Care" to "Medical Information Mart for Intensive Care". The MIMIC-III critical care database is unique and notable for the following reasons:
 \begin{itemize}
   \item it is the only freely accessible critical care database of its kind;
   \item the dataset spans more than a decade, with detailed information about individual patient care;
-  \item access is unrestricted once a data use agreement is accepted, enabling clinical research and education around the world.
+  \item analysis is unrestricted once a data use agreement is accepted, enabling clinical research and education around the world.
 \end{itemize}
 
 \subsection*{Patient characteristics}
@@ -99,7 +106,7 @@ The primary International Classification of Diseases (ICD-9) codes from the pati
 
 \subsection*{Classes of data}
 
-Data available in the MIMIC-III database ranges from time-stamped, nurse-verified physiological measurements made at the bedside to free-text interpretations of imaging studies provided by the radiology department. Table \ref{table:dataclasses} gives an overview of the different classes of data available. Figure \ref{figure:examplepatient} shows sample data for a single patient stay in a medical intensive care unit. The patient, who was undergoing a course of chemotherapy at the time of admission, presented with febrile neutropenia, anemia, and thrombocytopenia.
+Data available in the MIMIC-III database ranges from time-stamped, nurse-verified physiological measurements made at the bedside to free-text interpretations of imaging studies provided by the radiology department. Table \ref{table:dataclasses} gives an overview of the different classes of data available. Figure 2 shows sample data for a single patient stay in a medical intensive care unit. The patient, who was undergoing a course of chemotherapy at the time of admission, presented with febrile neutropenia, anemia, and thrombocytopenia.
 
 \section*{Methods}
 
@@ -161,8 +168,7 @@ Before data was incorporated into the MIMIC-III database, it was first deidentif
 %variables or parameters used to generate, test, or process the current dataset.
 % ------------------------------------ %
 
-%TODO: I feel like the buildmimic code should be in the mimic-iii-building repository, not the mimic-code repository
-% We can then detail the building process here - e.g. tested with PostgreSQL v9.4, Oracle v., etc...
+%TODO: I feel like the buildmimic code should be in the mimic-iii-building repository, not the mimic-code repository We can then detail the building process here - e.g. tested with PostgreSQL v9.4, Oracle v., etc...
 
 % The code used to create the MIMIC-III database from raw hospital exports has been made available in a public archive. Prior to opening up the code, the commit history was deleted to avoid sensitive information being inadvertently shared: https://github.com/MIT-LCP/mimic-iii-building %
 
@@ -221,47 +227,7 @@ Tables prefixed with “D\_” are dictionary tables and provide definitions for
 
 \subsection*{Data tables}
 
-The following tables are used to define and track patient stays:
-
-\begin{itemize}
-  \item ADMISSIONS: Every unique hospitalization for each patient in the database (defines HADM\_ID).
-  \item PATIENTS: Every unique patient in the database (defines SUBJECT\_ID).
-  \item ICUSTAYS: Every unique ICU stay in the database (defines ICUSTAY\_ID).
-  \item SERVICES: The clinical service under which a patient is registered.
-  \item TRANSFERS: Patient movement from bed to bed within the hospital, including ICU admission and discharge.
-\end{itemize}
-
-The following tables contain data associated with each patient:
-
-\begin{itemize}
-  \item CALLOUT: Information regarding when a patient was cleared for ICU discharge and when the patient was actually discharged.
-  \item CAREGIVERS: Every caregiver who has recorded data in the database (defines CGID).
-  \item CHARTEVENTS: All charted observations for patients.
-  \item CPTEVENTS: Procedures recorded as Current Procedural Terminology (CPT) codes.
-  \item DATETIMEEVENTS: All recorded observations which are dates, for example time of dialysis or insertion of lines.
-  \item DIAGNOSES\_ICD: Hospital assigned diagnoses, coded using the International Statistical Classification of Diseases and Related Health Problems (ICD) system.
-  \item DRGCODES: Diagnosis Related Groups (DRG), which are used by the hospital for billing purposes.
-  \item INPUTEVENTS\_CV: Intake for patients monitored using the Philips CareVue system while in the ICU, e.g. intravenous medications, enteral feeding, etc.
-  \item INPUTEVENTS\_MV: Intake for patients monitored using the iMDSoft MetaVision system while in the ICU, e.g. intravenous medications, enteral feeding, etc.
-  \item OUTPUTEVENTS: Output information for patients while in the ICU.
-  \item LABEVENTS: Laboratory measurements for patients both within the hospital and in outpatient clinics.
-  \item MICROBIOLOGYEVENTS: Microbiology culture results and antibiotic sensitivities from the hospital database.
-  \item NOTEEVENTS: Deidentified notes, including nursing and physician notes, ECG reports, radiology reports, and discharge summaries.
-  \item PRESCRIPTIONS: Medications ordered for a given patient.
-  \item PROCEDUREEVENTS\_MV: Patient procedures for the subset of patients who were monitored in the ICU using the iMDSoft MetaVision system.
-  \item PROCEDURES\_ICD: Patient procedures, coded using the International Statistical Classification of Diseases and Related Health Problems (ICD) system.
-\end{itemize}
-
-The following tables are dictionaries:
-
-\begin{itemize}
-  \item D\_CPT: High level dictionary of Current Procedural Terminology (CPT) codes.
-  \item D\_ICD\_DIAGNOSES: Dictionary of International Statistical Classification of Diseases and Related Health Problems (ICD-9) codes relating to diagnoses.
-  \item D\_ICD\_PROCEDURES: Dictionary of International Statistical Classification of Diseases and Related Health Problems (ICD-9) codes relating to procedures.
-  \item D\_ITEMS: Dictionary of local codes ('ITEMIDs') appearing in the MIMIC database, except those that relate to laboratory tests.
-  \item D\_LABITEMS: Dictionary of local codes ('ITEMIDs') appearing in the MIMIC database that relate to laboratory tests.
-\end{itemize}
-
+Table \ref{table:mimictables} describes how data is distributed across the database tables. Broadly speaking, five tables are used to define and track patient stays: ADMISSIONS; PATIENTS; ICUSTAYS; SERVICES; and TRANSFERS. The following sixteen tables contain data associated with each patient, such as physiological measurements and caregiver observations: CALLOUT; CAREGIVERS; CHARTEVENTS; CPTEVENTS; DATETIMEEVENTS; DIAGNOSES\_ICD; DRGCODES; INPUTEVENTS\_CV; INPUTEVENTS\_MV; OUTPUTEVENTS; LABEVENTS; MICROBIOLOGYEVENTS; NOTEEVENTS; PRESCRIPTIONS; PROCEDUREEVENTS\_MV; and PROCEDURES\_ICD. Finally, the following five tables are dictionaries that are used to cross-reference codes against their respective definition: D\_CPT; D\_ICD\_DIAGNOSES; D\_ICD\_PROCEDURES; D\_ITEMS; and D\_LABITEMS.
 
 \section*{Technical validation}
 
@@ -322,6 +288,21 @@ MIMIC-III is provided as a collection of comma separated value (CSV) files, alon
 
 Approval requires at least a week. Once an application has been approved the researcher will receive emails containing instructions for downloading the database from PhysioNetWorks, a restricted access component of PhysioNet \cite{cite6}.
 
+\subsection*{Example usage}
+
+TP: add detail here about past studies using MIMIC-II. Also discuss projects in progress on MIMIC-III, as well as datathons and education. datathon \cite{cite7}.
+
+% Course examples:
+% - CSE8803 Big Data Analytics for Healthcare, Spring 2016, at Georgia Tech, taught by Jimeng Sun. http://www.sunlab.org/teaching/cse8803/
+% - BIOMEDIN 215 DATA DRIVEN MEDICINE, Fall semester (several years now), Stanford, taught by Nigam Shah.  http://shahlab.stanford.edu/biomedin215
+% - Xiaopeng Zhao is teaching a course at University of Tennessee, Knoxville 
+%  Columbia course: computational methods in biomedical informatics (G4002)
+% taught in the columbia university biomedical informatics department
+% Noemie Elhadad is the professor.
+% from https://www.dbmi.columbia.edu/for-current-staff-students/courses/ (spring term courses):
+% BINF G4002 Methods I
+
+
 \subsection*{Collaborative research}
 
 Our experience is that many researchers work independently to produce code for data processing and analysis. We seek to move towards a more collaborative, iterative, and self-checking development process where researchers work together on a shared code base. To facilitate collaboration, a public "MIMIC Code Repository" has been created to encourage researchers to develop and share code collectively: https://github.com/MIT-LCP/mimic-code \\
@@ -344,7 +325,7 @@ Documentation is available online (http://mimic.physionet.org) and offers functi
 % of each author to this work on a separate line.
 % ------------------------------------ %
 
-This research and development was supported by grants NIH-R01-EB017205, NIH-R01-EB001659, and NIH-R01-GW104987 from the National Institutes of Health. The authors would also like to thank Philips Healthcare and staff at the Beth Israel Deaconess Medical Center, Boston, for supporting database development, and Ken Pierce for providing Figure \ref{figure:mimicoverview}.
+This research and development was supported by grants NIH-R01-EB017205, NIH-R01-EB001659, and NIH-R01-GW104987 from the National Institutes of Health. The authors would also like to thank Philips Healthcare and staff at the Beth Israel Deaconess Medical Center, Boston, for supporting database development, and Ken Pierce for providing Figure 1.
 
 \section*{Competing financial interests}
 
@@ -370,21 +351,13 @@ The authors declare no competing financial interests.
 
 % TP: response to reviewers. Fixed bug to display figure number in text.
 
-\begin{center}
-\begin{figure}
-\includegraphics[width=\textwidth]{MIMICData.png}
-\caption{Overview of the MIMIC-III critical care database.}
-\label{figure:mimicoverview}
-\end{figure}
-\end{center}
+\noindent
+\textbf{Figure 1}: \\
+Overview of the MIMIC-III critical care database. \\
 
-\begin{center}
-\begin{figure}
-\includegraphics[width=\textwidth]{examplepatient.jpeg}
-\caption{Sample data for a single patient stay in a medical intensive care unit. GCS is Glasgow Coma Scale; NIBP is non-invasive blood pressure; and O2 saturation is Oxygen saturation.}
-\label{figure:examplepatient}
-\end{figure}
-\end{center}
+\noindent
+\textbf{Figure 2}: \\
+Sample data for a single patient stay in a medical intensive care unit. GCS is Glasgow Coma Scale; NIBP is non-invasive blood pressure; and O2 saturation is blood oxygen saturation.
 
 \section*{Tables}
 
@@ -487,8 +460,6 @@ The authors declare no competing financial interests.
 \end{table}
 \end{center}
 
-% TP: response to reviewers. Move table so that it appears in correct order.
-
 % Table 3:
 %	Overview of MIMIC-III
 
@@ -515,6 +486,73 @@ The authors declare no competing financial interests.
 \end{tabular}
 \caption{Classes of data available in the MIMIC-III critical care database.}
 \label{table:dataclasses}
+\end{table}
+\end{center}
+
+% Table 4:
+%	MIMIC data tables
+
+\begin{center}
+\begin{table}
+\begin{tabular}{|l|p{10.5cm}|}
+    \hline
+    Table name & Description \\
+    \hline
+    ADMISSIONS & Every unique hospitalization for each patient in the database (defines HADM\_ID). \\
+    \hline
+    CALLOUT & Information regarding when a patient was cleared for ICU discharge and when the patient was actually discharged. \\
+    \hline
+    CAREGIVERS & Every caregiver who has recorded data in the database (defines CGID). \\
+    \hline
+    CHARTEVENTS & All charted observations for patients. \\
+    \hline
+    CPTEVENTS & Procedures recorded as Current Procedural Terminology (CPT) codes. \\
+    \hline
+    D\_CPT & High level dictionary of Current Procedural Terminology (CPT) codes. \\
+    \hline
+    D\_ICD\_DIAGNOSES & Dictionary of International Statistical Classification of Diseases and Related Health Problems (ICD-9) codes relating to diagnoses. \\
+    \hline
+    D\_ICD\_PROCEDURES & Dictionary of International Statistical Classification of Diseases and Related Health Problems (ICD-9) codes relating to procedures. \\
+    \hline
+    D\_ITEMS & Dictionary of local codes ('ITEMIDs') appearing in the MIMIC database, except those that relate to laboratory tests. \\
+    \hline
+    D\_LABITEMS & Dictionary of local codes ('ITEMIDs') appearing in the MIMIC database that relate to laboratory tests. \\
+    \hline
+    DATETIMEEVENTS & All recorded observations which are dates, for example time of dialysis or insertion of lines. \\
+    \hline
+    DIAGNOSES\_ICD & Hospital assigned diagnoses, coded using the International Statistical Classification of Diseases and Related Health Problems (ICD) system. \\
+    \hline
+    DRGCODES & Diagnosis Related Groups (DRG), which are used by the hospital for billing purposes. \\
+    \hline
+    ICUSTAYS & Every unique ICU stay in the database (defines ICUSTAY\_ID). \\
+    \hline
+    INPUTEVENTS\_CV & Intake for patients monitored using the Philips CareVue system while in the ICU, e.g. intravenous medications, enteral feeding, etc. \\
+    \hline
+    INPUTEVENTS\_MV & Intake for patients monitored using the iMDSoft MetaVision system while in the ICU, e.g. intravenous medications, enteral feeding, etc. \\
+    \hline
+    OUTPUTEVENTS & Output information for patients while in the ICU. \\
+    \hline
+    LABEVENTS & Laboratory measurements for patients both within the hospital and in outpatient clinics. \\
+    \hline
+    MICROBIOLOGYEVENTS & Microbiology culture results and antibiotic sensitivities from the hospital database. \\
+    \hline
+    NOTEEVENTS & Deidentified notes, including nursing and physician notes, ECG reports, radiology reports, and discharge summaries. \\
+    \hline
+    PATIENTS & Every unique patient in the database (defines SUBJECT\_ID). \\
+    \hline
+    PRESCRIPTIONS & Medications ordered for a given patient. \\
+    \hline
+    PROCEDUREEVENTS\_MV & Patient procedures for the subset of patients who were monitored in the ICU using the iMDSoft MetaVision system. \\
+    \hline
+    PROCEDURES\_ICD & Patient procedures, coded using the International Statistical Classification of Diseases and Related Health Problems (ICD) system. \\
+    \hline
+    SERVICES & The clinical service under which a patient is registered. \\
+    \hline
+    TRANSFERS & Patient movement from bed to bed within the hospital, including ICU admission and discharge. \\
+    \hline
+\end{tabular}
+\caption{An overview of the data tables comprising the MIMIC-III (v1.3) critical care database.}
+\label{table:mimictables}
 \end{table}
 \end{center}
 
@@ -593,20 +631,25 @@ among U.S. Non-federal Acute Care Hospitals}}.
 \newblock \emph{\bibinfo{journal}{Circulation}}
   \textbf{\bibinfo{volume}{101}}, \bibinfo{pages}{e215----e220}
   (\bibinfo{year}{2000}).
-
-\end{thebibliography}
-
+  
+\bibitem{cite7}
+\bibinfo{author}{Aboab, J.}, \bibinfo{author}{Celi, L.A.},
+\bibinfo{author}{Charlton, P.}, \bibinfo{author}{Feng, M.},
+\bibinfo{author}{Ghassemi, M.}, \bibinfo{author}{Marshall, D.C.},
+\bibinfo{author}{Mayaud, L.}, \bibinfo{author}{Naumann, T.},
+\bibinfo{author}{McCague, N.}, \bibinfo{author}{Paik, K.E.},
+\bibinfo{author}{Pollard, T.J.}, \bibinfo{author}{Resche-Rigon, M.}, 
+\bibinfo{author}{Salciccioli, J.D.} \& \bibinfo{author}{Stone, D.J.}
+\newblock \bibinfo{title}{{A “datathon” model to support cross-disciplinary collaboration.}}
+\newblock \emph{\bibinfo{journal}{Science Translational Medicine}}
+  \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{333--ps8}
+  (\bibinfo{year}{2016}).
+  
 \section*{Data Citations}
 
 % Bibliographic information for the data records described in the manuscript.
 
 % TP: response to reviewers. Update mimic reference.
-\begin{thebibliography}{1}
-\expandafter\ifx\csname url\endcsname\relax
-  \def\url#1{\texttt{#1}}\fi
-\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
-\providecommand{\bibinfo}[2]{#2}
-\providecommand{\eprint}[2][]{\url{#2}}
 
 \bibitem{mimic-iii}
 \bibinfo{author}{Pollard, T.J.} \& \bibinfo{author}{Johnson, A.E.W.}
