@@ -286,20 +286,27 @@ Issue tracking is used to ensure that limitations of the data and code are clear
 
 \subsection*{Data access}
 
-MIMIC-III is provided as a collection of comma separated value (CSV) files, along with scripts to help with importing the data into database systems including PostreSQL, MySQL, and MonetDB. As the database contains detailed information regarding the clinical care of patients, it must be treated with appropriate care and respect. Researchers are required to formally request access via a process documented on the MIMIC website (http://mimic.physionet.org). There are two key steps that must be completed before access is granted:
+MIMIC-III is provided as a collection of comma separated value (CSV) files, along with scripts to help with importing the data into database systems including PostreSQL, MySQL, and MonetDB. As the database contains detailed information regarding the clinical care of patients, it must be treated with appropriate care and respect. Researchers are required to formally request access via a process documented on the MIMIC website \cite{cite-mimic-website}. There are two key steps that must be completed before access is granted:
 
 \begin{enumerate}
   \item the researcher must complete a recognised course in protecting human research participants that includes Health Insurance Portability and Accountability Act (HIPAA) requirements.
-  \item the researcher must sign a data use agreement, which outlines appropriate data usage, security, and forbids efforts to identify individual patients.
+  \item the researcher must sign a data use agreement, which outlines appropriate data usage and security standards, and forbids efforts to identify individual patients.
 \end{enumerate}
 
 Approval requires at least a week. Once an application has been approved the researcher will receive emails containing instructions for downloading the database from PhysioNetWorks, a restricted access component of PhysioNet \cite{cite6}.
 
 \subsection*{Example usage}
 
-Documentation for the MIMIC database is available online (http://mimic.physionet.org). The content is under continuous development and the website includes functionality that enables the research community to directly submit updates and improvements via Github "Pull requests".
+MIMIC has been used as a basis for coursework in numerous educational institutions, for example in medical analytics courses at Stanford University (course BIOMEDIN215), Massachusetts Institute of Technology (course HST953), Georgia Institute of Technology (course CSE8803), and Columbia University (course G4002), amongst others. MIMIC has also provided the data that underpins a broad range of research studies, which have explored topics such as machine learning approaches for prediction of patient outcomes, clinical implications of blood pressure monitoring techniques, and semantic analysis of unstructured patient notes \cite{mimic-mayaud, mimic-lehman, mimic-velupillai, mimic-abhyankar}.
 
-TP: add detail here about past studies using MIMIC-II. Also discuss projects in progress on MIMIC-III, as well as datathons and education. datathon \cite{cite7}.
+% http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724452/
+% http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3609896/
+% http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4587060/
+% http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4147606/
+
+A series of 'datathons' have been held alongside development of the MIMIC database. These events assemble caregivers, data scientists, and those with domain-specific knowledge with the aim of creating ideas and producing clinically relevant, reproducible research \cite{cite7}. In parallel the events introduce new researchers to MIMIC and provide a platform for continuous review and development of code and research.
+
+Documentation for the MIMIC database is available online \cite{cite-mimic-website}. The content is under continuous development and includes a list of studies that have been carried out using MIMIC. The website includes functionality that enables the research community to directly submit updates and improvements via Github "Pull requests".
 
 % Course examples:
 % - CSE8803 Big Data Analytics for Healthcare, Spring 2016, at Georgia Tech, taught by Jimeng Sun. http://www.sunlab.org/teaching/cse8803/
@@ -340,7 +347,7 @@ This research and development was supported by grants NIH-R01-EB017205, NIH-R01-
 
 \section*{Author contributions}
 
-AEWJ, TJP, and LS built the MIMIC-III database. LS and LW carried out de-identification. All authors gave feedback during the database development process and contributed to writing the paper. 
+AEWJ, TJP, and LS built the MIMIC-III database. LS and LW carried out de-identification. All authors gave input into the database development process and contributed to writing the paper. 
 
 \section*{Competing financial interests}
 
@@ -642,7 +649,12 @@ among U.S. Non-federal Acute Care Hospitals}}.
 \newblock \emph{\bibinfo{journal}{Circulation}}
   \textbf{\bibinfo{volume}{101}}, \bibinfo{pages}{e215----e220}
   (\bibinfo{year}{2000}).
-  
+
+\bibitem{cite-mimic-website}
+\newblock \bibinfo{title}{{MIMIC-III Critical Care Database: Documentation and Website}}
+\newblock \emph{\bibinfo{journal}{http://mimic.physionet.org}}
+(\bibinfo{year}{Accessed: March 2016}).
+
 \bibitem{cite7}
 \bibinfo{author}{Aboab, J.}, \bibinfo{author}{Celi, L.A.},
 \bibinfo{author}{Charlton, P.}, \bibinfo{author}{Feng, M.},
@@ -657,10 +669,48 @@ among U.S. Non-federal Acute Care Hospitals}}.
   (\bibinfo{year}{2016}).
   
 \bibitem{cite8}
-\newblock \bibinfo{title}{{Observational Medical Outcomes Partnership - Common Data Model.}}
-\newblock \emph{\bibinfo{journal}{Website}}
+\newblock \bibinfo{title}{{Observational Medical Outcomes Partnership Common Data Model Website.}}
+\newblock \emph{\bibinfo{journal}{http://www.ohdsi.org/data-standardization/the-common-data-model/}}
 (\bibinfo{year}{Accessed: March 2016}).
-  
+
+% http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3724452/
+% http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3609896/
+% http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4587060/
+% http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4147606/
+
+\bibitem{mimic-mayaud}
+\bibinfo{author}{SURNAME, INITIAL.}, \bibinfo{author}{SURNAME, INITIAL.} \&
+\bibinfo{author}{SURNAME, INITIAL.},
+\newblock \bibinfo{title}{{TITLE.}}
+\newblock \emph{\bibinfo{journal}{JOURNAL}}
+  \textbf{\bibinfo{volume}{VOLUME}}, \bibinfo{pages}{START--END}
+  (\bibinfo{year}{YEAR}).
+
+\bibitem{mimic-lehman}
+\bibinfo{author}{Lehman, L.H.}, \bibinfo{author}{Saeed, M.},
+\bibinfo{author}{Talmor, D.}, \bibinfo{author}{Mark, R.G.} \&
+\bibinfo{author}{Malhotra, A.},
+\newblock \bibinfo{title}{{TITLE.}}
+\newblock \emph{\bibinfo{journal}{JOURNAL}}
+  \textbf{\bibinfo{volume}{VOLUME}}, \bibinfo{pages}{START--END}
+  (\bibinfo{year}{YEAR}).
+
+\bibitem{mimic-velupillai}
+\bibinfo{author}{SURNAME, INITIAL.}, \bibinfo{author}{SURNAME, INITIAL.} \&
+\bibinfo{author}{SURNAME, INITIAL.},
+\newblock \bibinfo{title}{{TITLE.}}
+\newblock \emph{\bibinfo{journal}{JOURNAL}}
+  \textbf{\bibinfo{volume}{VOLUME}}, \bibinfo{pages}{START--END}
+  (\bibinfo{year}{YEAR}).
+
+\bibitem{mimic-abhyankar}
+\bibinfo{author}{SURNAME, INITIAL.}, \bibinfo{author}{SURNAME, INITIAL.} \&
+\bibinfo{author}{SURNAME, INITIAL.},
+\newblock \bibinfo{title}{{TITLE.}}
+\newblock \emph{\bibinfo{journal}{JOURNAL}}
+  \textbf{\bibinfo{volume}{VOLUME}}, \bibinfo{pages}{START--END}
+  (\bibinfo{year}{YEAR}).
+ 
 \section*{Data Citations}
 
 % Bibliographic information for the data records described in the manuscript.
