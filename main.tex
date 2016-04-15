@@ -43,7 +43,7 @@ Roger G. Mark\textsuperscript{1,2}
 {†}Authors contributed equally.
 
 \begin{abstract} % 170 words
-MIMIC-III ("Medical Information Mart for Intensive Care") is a large, single-center database comprising information relating to patients admitted to critical care units at a large tertiary care hospital. Data includes vital signs, medications, laboratory measurements, observations and notes charted by clinicians, fluid balance, procedure codes, diagnostic codes, imaging reports, hospital length of stay, survival data, and more. The database supports applications including academic and industrial research, quality improvement initiatives, and higher education coursework.
+MIMIC-III ("Medical Information Mart for Intensive Care") is a large, single-center database comprising information relating to patients admitted to critical care units at a large tertiary care hospital. Data includes vital signs, medications, laboratory measurements, observations and notes charted by care providers, fluid balance, procedure codes, diagnostic codes, imaging reports, hospital length of stay, survival data, and more. The database supports applications including academic and industrial research, quality improvement initiatives, and higher education coursework.
 \end{abstract}
 
 \section*{Background \& summary} % 700 words
@@ -88,7 +88,7 @@ To recognize the increasingly broad usage of MIMIC, we have renamed the full tit
 
 \subsection*{Patient characteristics}
 
-MIMIC-III contains data associated with 53,423 distinct hospital admissions for adult patients (aged 16 years or above) admitted to critical care units between 2001 and 2012. In addition, it contains data for 7870 neonates admitted between 2001 and 2008. The data covers 38,597 distinct adult patients and 49,785 hospital admissions. The median age of adult patients is 65.8 years (Q1-Q3: 52.8 - 77.8), 55.9\% patients are male, and in-hospital mortality is 11.5\%. Median length of ICU stay is 2.1 days (Q1-Q3: 1.2 - 4.6) and median length of hospital stay is 6.9 days (Q1-Q3: 4.1 - 11.9). A mean of 4579 charted observations ('chartevents') and 380 laboratory measurements ('labevents') are available for each hospital admission. Table \ref{table:patientpopulation} provides a breakdown of the adult population by care unit.
+MIMIC-III contains data associated with 53,423 distinct hospital admissions for adult patients (aged 16 years or above) admitted to critical care units between 2001 and 2012. In addition, it contains data for 7870 neonates admitted between 2001 and 2008. The data covers 38,597 distinct adult patients and 49,785 hospital admissions. The median age of adult patients is 65.8 years (Q1-Q3: 52.8 - 77.8), 55.9\% patients are male, and in-hospital mortality is 11.5\%. The median length of an ICU stay is 2.1 days (Q1-Q3: 1.2 - 4.6) and the median length of a hospital stay is 6.9 days (Q1-Q3: 4.1 - 11.9). A mean of 4579 charted observations ('chartevents') and 380 laboratory measurements ('labevents') are available for each hospital admission. Table \ref{table:patientpopulation} provides a breakdown of the adult population by care unit.
 
 The primary International Classification of Diseases (ICD-9) codes from the patient discharges are listed in Table \ref{table:icddistribution}. The top three codes across hospital admissions for patients aged 16 years and above were:
 \begin{itemize}
@@ -138,7 +138,7 @@ The MIMIC-III database was populated with data that had been acquired during rou
 Two different critical care information systems were in place over the data collection period: Philips CareVue Clinical Information System (models M2331A and M1215A; Philips Health-care, Andover, MA) and iMDsoft MetaVision ICU (iMDsoft, Needham, MA). These systems were the source of clinical data such as:
 \begin{itemize}
   \item time-stamped nurse-verified physiological measurements (for example, hourly documentation of heart rate, arterial blood pressure, or respiratory rate);
-  \item caregiver documented progress notes;
+  \item documented progress notes by care providers;
   \item continuous intravenous drip medications and fluid balances.
 \end{itemize}
 
@@ -149,19 +149,17 @@ With exception to data relating to fluid intake, which differed significantly in
   \item discharge summaries and reports of electrocardiogram and imaging studies.
   \item billing-related information such as International Classification of Disease, 9th Edition (ICD-9) codes, Diagnosis Related Group (DRG) codes, and Current Procedural Terminology (CPT) codes.
 \end{itemize}
-Out-of-hospital mortality dates were obtained using the Social Security Administration Death Master File. A more detailed description of the data is shown in Table \ref{table:patientpopulation}. Physiological waveforms obtained from bedside monitors (such as electrocardiogram, blood pressures, pulse plethysmograms, respirations) were obtained for a subset of patients. 
+Out-of-hospital mortality dates were obtained using the Social Security Administration Death Master File. A more detailed description of the data is shown in Table \ref{table:patientpopulation}. Physiological waveforms obtained from bedside monitors (such as electrocardiograms, blood pressure waveforms, photoplethysmograms, impedance pneumograms) were obtained for a subset of patients. 
 
-Several projects are ongoing to map concepts within the MIMIC database to standardised dictionaries. For example, researchers at the National Library of Medicine National Institutes of Health have mapped laboratory tests and medications in MIMIC-II to LOINC and RxNorm, respectively [http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3419308/]. Efforts are also underway to transform MIMIC to common data models, such as the Observational Medical Outcomes Partnership Common Data Model, to support the application of standardized tools and methods [http://www.ohdsi.org/data-standardization/the-common-data-model/]. These developments are progressively incorporated into the MIMIC database where possible.
+Several projects are ongoing to map concepts within the MIMIC database to standardized dictionaries. For example, researchers at the National Library of Medicine National Institutes of Health have mapped laboratory tests and medications in MIMIC-II to LOINC and RxNorm, respectively [http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3419308/]. Efforts are also underway to transform MIMIC to common data models, such as the Observational Medical Outcomes Partnership Common Data Model, to support the application of standardized tools and methods [http://www.ohdsi.org/data-standardization/the-common-data-model/]. These developments are progressively incorporated into the MIMIC database where possible.
 
 The project was approved by the Institutional Review Boards of Beth Israel Deaconess Medical Center (Boston, MA) and the Massachusetts Institute of Technology (Cambridge, MA). Requirement for individual patient consent was waived because the project did not impact clinical care and all protected health information was deidentified.
 
 \subsection*{Deidentification}
 
-Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements, including fields such as patient name, telephone number, address, and dates. In particular, dates were shifted into the future by a random offset for each individual patient in a consistent manner to preserve intervals, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were conserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA regulations: these patients appear in the database with ages of over 300 years. 
+Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements listed in HIPAA, including fields such as patient name, telephone number, address, and dates. In particular, dates were shifted into the future by a random offset for each individual patient in a consistent manner to preserve intervals, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were conserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA regulations: these patients appear in the database with ages of over 300 years. 
 
 Protected health information was removed from free text fields such as diagnostic reports and physician notes using a rigorously evaluated de-identification system based on extensive dictionary look-ups and pattern-matching with regular expressions \cite{cite5}.
-
-% TP: add more detail on deidentification here.
 
 \subsection*{Code availability}
 
@@ -248,7 +246,7 @@ In some cases it would be possible to merge tables - for example, the D\_ICD\_PR
 % of their data.
 % ------------------------------------ %
 
-A minimal amount of processing was undertaken to achieve the desired deidentification and data structure, helping to ensure that MIMIC-III closely represents the raw data collected within the Beth Israel Deaconess Medical Center.
+The number of structural changes were minimized to achieve the desired level of deidentification and data schema, helping to ensure that MIMIC-III closely represents the raw data collected within the Beth Israel Deaconess Medical Center.
 
 Best practice for scientific computing was followed where possible \cite{cite4}. Code used to build MIMIC-III was version controlled and developed collaboratively within the laboratory. This approach encouraged and facilitated sharing of readable code and documentation, as well as frequent feedback from colleagues.
 
@@ -291,7 +289,7 @@ Issue tracking is used to ensure that limitations of the data and code are clear
 MIMIC-III is provided as a collection of comma separated value (CSV) files, along with scripts to help with importing the data into database systems including PostreSQL, MySQL, and MonetDB. As the database contains detailed information regarding the clinical care of patients, it must be treated with appropriate care and respect. Researchers are required to formally request access via a process documented on the MIMIC website \cite{cite-mimic-website}. There are two key steps that must be completed before access is granted:
 
 \begin{enumerate}
-  \item the researcher must complete a recognised course in protecting human research participants that includes Health Insurance Portability and Accountability Act (HIPAA) requirements.
+  \item the researcher must complete a recognized course in protecting human research participants that includes Health Insurance Portability and Accountability Act (HIPAA) requirements.
   \item the researcher must sign a data use agreement, which outlines appropriate data usage and security standards, and forbids efforts to identify individual patients.
 \end{enumerate}
 
@@ -308,15 +306,15 @@ MIMIC has been used as a basis for coursework in numerous educational institutio
 
 A series of 'datathons' have been held alongside development of the MIMIC database. These events assemble caregivers, data scientists, and those with domain-specific knowledge with the aim of creating ideas and producing clinically relevant, reproducible research \cite{cite7}. In parallel the events introduce new researchers to MIMIC and provide a platform for continuous review and development of code and research.
 
-Documentation for the MIMIC database is available online \cite{cite-mimic-website}. The content is under continuous development and includes a list of studies that have been carried out using MIMIC. The website includes functionality that enables the research community to directly submit updates and improvements via Github "Pull requests".
+Documentation for the MIMIC database is available online \cite{cite-mimic-website}. The content is under continuous development and includes a list of studies that have been carried out using MIMIC. The website includes functionality that enables the research community to directly submit updates and improvements via GitHub.
 
 \subsection*{Collaborative research}
 
-Our experience is that many researchers work independently to produce code for data processing and analysis. We seek to move towards a more collaborative, iterative, and self-checking development process where researchers work together on a shared code base. To facilitate collaboration, a public "MIMIC Code Repository" has been created to encourage researchers to develop and share code collectively: https://github.com/MIT-LCP/mimic-code. 
+Our experience is that many researchers work independently to produce code for data processing and analysis. We seek to move towards a more collaborative, iterative, and self-checking development process where researchers work together on a shared code base. To facilitate collaboration, a public code repository has been created to encourage researchers to develop and share code collectively: https://github.com/MIT-LCP/mimic-code. 
 
-The repository has been seeded with code to calculate commonly utilized variables in critical care research, including severity of illness scores, comorbidity scores, and durations of mechanical ventilation and vasopressor use. We encourage users to incorporate this code into their research, provide improvements, and add new contributions that have potential to benefit the research community as a whole. Over time, we expect the repository to become increasingly vital for researchers working with the MIMIC-III database.
+The repository has been seeded with code to calculate commonly utilized variables in critical care research, including severity of illness scores, comorbidity scores, and duration of various treatments such as mechanical ventilation and vasopressor use. We encourage users to incorporate this code into their research, provide improvements, and add new contributions that have potential to benefit the research community as a whole. Over time, we expect the repository to become increasingly vital for researchers working with the MIMIC-III database.
 
-Alongside work on the centralised codebase, we support efforts to transform MIMIC into common data models such the Observational Medical Outcomes Partnership Common Data Model (OMOP-CDM) \cite{cite8}. Developing these common models may help to facilitate integration with complementary datasets and to enable the application of generalised analytic tools. Important efforts to map concepts to standardised clinical ontologies are also underway.
+Alongside work on the centralized codebase, we support efforts to transform MIMIC into common data models such the Observational Medical Outcomes Partnership Common Data Model (OMOP-CDM) \cite{cite8}. Developing these common models may help to facilitate integration with complementary datasets and to enable the application of generalized analytic tools. Important efforts to map concepts to standardized clinical ontologies are also underway.
 
 % http://www.ohdsi.org/data-standardization/the-common-data-model/ 
 
@@ -338,7 +336,7 @@ This research and development was supported by grants NIH-R01-EB017205, NIH-R01-
 
 \section*{Author contributions}
 
-AEWJ, TJP, and LS built the MIMIC-III database. LS and LW carried out de-identification. All authors gave input into the database development process and contributed to writing the paper. 
+AEWJ, TJP, LS and LW built the MIMIC-III database. All authors gave input into the database development process and contributed to writing the paper. 
 
 \section*{Competing financial interests}
 
