@@ -19,8 +19,6 @@
 % Data Descriptor Title (110 character maximum, inc. spaces)
 \title{MIMIC-III, a freely accessible critical care database}
 
-% TP: response to review. Updated title as suggested.
-
 \author{
 Alistair E.W Johnson\textsuperscript{1{†}},
 Tom J. Pollard\textsuperscript{1{†}{*}},
@@ -159,7 +157,7 @@ The project was approved by the Institutional Review Boards of Beth Israel Deaco
 
 Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements listed in HIPAA, including fields such as patient name, telephone number, address, and dates. In particular, dates were shifted into the future by a random offset for each individual patient in a consistent manner to preserve intervals, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were conserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA regulations: these patients appear in the database with ages of over 300 years. 
 
-Protected health information was removed from free text fields such as diagnostic reports and physician notes using a rigorously evaluated de-identification system based on extensive dictionary look-ups and pattern-matching with regular expressions \cite{cite5}.
+Protected health information was removed from free text fields, such as diagnostic reports and physician notes, using a rigorously evaluated deidentification system based on extensive dictionary look-ups and pattern-matching with regular expressions \cite{cite5}. The components of this deidentification system are continually expanded as new data is acquired from the hospital.
 
 \subsection*{Code availability}
 
@@ -177,7 +175,7 @@ Protected health information was removed from free text fields such as diagnosti
 
 The code that underpins the MIMIC-III website and documentation is openly available and contributions from the research community are encouraged: \\ https://github.com/MIT-LCP/mimic-website
 
-An IPython Notebook containing the code used to generate the tables and descriptive statistics included in this paper is available at: \\ https://github.com/MIT-LCP/mimic-iii-paper/
+An Jupyter Notebook containing the code used to generate the tables and descriptive statistics included in this paper is available at: \\ https://github.com/MIT-LCP/mimic-iii-paper/
 
 % Answer:
 % Deidentification code available at github.com/MIT-lcp/deid
