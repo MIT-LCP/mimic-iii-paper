@@ -157,7 +157,7 @@ The project was approved by the Institutional Review Boards of Beth Israel Deaco
 
 Before data was incorporated into the MIMIC-III database, it was first deidentified in accordance with Health Insurance Portability and Accountability Act (HIPAA) standards using structured data cleansing and date shifting. The deidentification process for structured data required the removal of all eighteen of the identifying data elements listed in HIPAA, including fields such as patient name, telephone number, address, and dates. In particular, dates were shifted into the future by a random offset for each individual patient in a consistent manner to preserve intervals, resulting in stays which occur sometime between the years 2100 and 2200. Time of day, day of the week, and approximate seasonality were conserved during date shifting. Dates of birth for patients aged over 89 were shifted to obscure their true age and comply with HIPAA regulations: these patients appear in the database with ages of over 300 years. 
 
-Protected health information was removed from free text fields, such as diagnostic reports and physician notes, using a rigorously evaluated deidentification system based on extensive dictionary look-ups and pattern-matching with regular expressions \cite{cite5}. The components of this deidentification system are continually expanded as new data is acquired from the hospital.
+Protected health information was removed from free text fields, such as diagnostic reports and physician notes, using a rigorously evaluated deidentification system based on extensive dictionary look-ups and pattern-matching with regular expressions \cite{cite5}. The components of this deidentification system are continually expanded as new data is acquired.
 
 \subsection*{Code availability}
 
@@ -220,7 +220,7 @@ A Jupyter Notebook containing the code used to generate the tables and descripti
 
 % Include a nice visualization of the data
 
-MIMIC-III is a relational database consisting of 26 tables. Tables are linked by identifiers which usually have the suffix "ID". For example, SUBJECT\_ID refers to a unique patient, HADM\_ID refers to a unique admission to the hospital, and ICUSTAY\_ID refers to a unique admission to an intensive care unit.
+MIMIC-III is a relational database consisting of 26 tables (Data Citation 1). Tables are linked by identifiers which usually have the suffix "ID". For example, SUBJECT\_ID refers to a unique patient, HADM\_ID refers to a unique admission to the hospital, and ICUSTAY\_ID refers to a unique admission to an intensive care unit.
 
 Charted events such as notes, laboratory tests, and fluid balance are stored in a series of "events" tables. For example the OUTPUTEVENTS table contains all measurements related to output for a given patient, while the LABEVENTS table contains laboratory test results for a patient.
 
