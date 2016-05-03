@@ -69,7 +69,7 @@ PATIENTS            Descriptive     Hospital electronic health record
 PRESCRIPTIONS       Medications     Hospital electronic health record 
                                     databases   
 
-PROCEDUREEVENTS\_MV Procedures      Archives from critical care information
+PROCEDUREEVENTS\_MV Interventions   Archives from critical care information
                                     system (iMDsoft MetaVision)  
 
 PROCEDURES\_ICD     Billing         Hospital electronic health record 
