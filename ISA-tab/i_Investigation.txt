@@ -1,0 +1,106 @@
+# Investigation File generated for Scientific Data with Investigation File Authoring Tool version 0.1.0 on 03/05/2016 - This metadata file is CC0
+ONTOLOGY SOURCE REFERENCE
+Term Source Name	OMIT	NCBITAXON	UBERON	ERO	NCIT	CMO	OAE	OBI
+Term Source File	http://data.bioontology.org/ontologies/OMIT	http://data.bioontology.org/ontologies/NCBITAXON	http://data.bioontology.org/ontologies/UBERON	http://data.bioontology.org/ontologies/ERO	http://data.bioontology.org/ontologies/NCIT	http://data.bioontology.org/ontologies/CMO	http://data.bioontology.org/ontologies/OAE	http://data.bioontology.org/ontologies/OBI
+Term Source Version	OBO 4.0-12122013-2338	2015AA	releases/2014-06-15	2013-08-02	16.03d	2.37	Vision Release; 1.1.313	2014-08-18
+Term Source Description	Ontology for MicroRNA Target	National Center for Biotechnology Information (NCBI) Organismal Classification	Uber Anatomy Ontology	Eagle-I Research Resource Ontology	National Cancer Institute Thesaurus	Clinical Measurement Ontology	Ontology of Adverse Events	Ontology for Biomedical Investigations
+INVESTIGATION
+Investigation Identifier
+Investigation Title
+Investigation Description
+Investigation Submission Date
+Investigation Public Release Date
+INVESTIGATION PUBLICATIONS
+Investigation PubMed ID
+Investigation Publication DOI
+Investigation Publication Author List
+Investigation Publication Title
+Investigation Publication Status
+Investigation Publication Status Term Accession Number
+Investigation Publication Status Term Source REF
+INVESTIGATION CONTACTS
+Investigation Person Last Name
+Investigation Person Mid Initials
+Investigation Person First Name
+Investigation Person Address
+Investigation Person Phone
+Investigation Person Fax
+Investigation Person Email
+Investigation Person Affiliation
+Investigation Person Roles
+Investigation Person Roles Term Accession Number
+Investigation Person Roles Term Source REF
+STUDY
+Study Identifier	SDATA-16-00042A
+Study Title	MIMIC-III, a freely accessible critical care database
+Study Submission Date	""
+Study Public Release Date	""
+Study Description	""
+Study File Name	s_study_Pollard.txt
+Comment[Subject Keywords]	""
+Comment[Manuscript Licence]	""
+Comment[Experimental Metadata Licence]	CC0
+Comment[Supplementary Information File Name]
+Comment[Supplementary Information File Type]
+Comment[Supplementary Information File URL]
+Comment[Data Repository]	PhysioNet
+Comment[Data Record Accession]	doi:10.13026/C2XW26
+Comment[Data Record URI]	http://dx.doi.org/10.13026/C2XW26
+STUDY DESIGN DESCRIPTORS
+Study Design Type	data integration objective
+Study Design Type Term Accession Number	ERO:0100092
+Study Design Type Term Source REF	ERO
+STUDY PUBLICATIONS
+Study PubMed ID
+Study Publication DOI
+Study Publication Author List
+Study Publication Title
+Study Publication Status
+Study Publication Status Term Accession Number
+Study Publication Status Term Source REF
+STUDY FACTORS
+Study Factor Name
+Study Factor Type
+Study Factor Type Term Accession Number
+Study Factor Type Term Source REF
+STUDY ASSAYS
+Study Assay Measurement Type	Demographics	clinical measurement	intervention	Billing	Medical History Dictionary	Pharmacotherapy	clinical laboratory test	medical data	medical data	medical data
+Study Assay Measurement Type Term Accession Number	NCIT:C16495	CMO:0000000	ERO:0000347	NCIT:C88189	NCIT:C49702	NCIT:C15986	OAE:0000077	ERO:0100377	ERO:0100377	ERO:0100377
+Study Assay Measurement Type Term Source REF	NCIT	CMO	ERO	NCIT	NCIT	NCIT	OAE	ERO	ERO	ERO
+Study Assay Technology Type	Electronic Medical Record	Medical Record	Medical Record	Electronic Billing System	Medical Coding Process Document	Medical Record	Electronic Medical Record	Free Text Format	Free Text Format	Medical Record
+Study Assay Technology Type Term Accession Number	NCIT:C45259	NCIT:C45258	NCIT:C45258	NCIT:C52655	NCIT:C115714	NCIT:C45258	NCIT:C45259	NCIT:C70764	NCIT:C70764	NCIT:C45258
+Study Assay Technology Type Term Source REF	NCIT	NCIT	NCIT	NCIT	NCIT	NCIT	NCIT	NCIT	NCIT	NCIT
+Study Assay Technology Platform	""	""	""	""	""	""	""	""	""	""
+Study Assay File Name	a_descriptive_Pollard.txt	a_physiologic_Pollard.txt	a_intervention_Pollard.txt	a_billing_Pollard.txt	a_dictionary_Pollard.txt	a_medication_Pollard.txt	a_laboratory_Pollard.txt	a_notes_Pollard.txt	a_reports_Pollard.txt	a_procedures_Pollard.txt
+STUDY PROTOCOLS
+Study Protocol Name	Patient characteristics	Classes of data	Database development	Deidentification
+Study Protocol Type	selection	information acquisition	database development	Deidentification
+Study Protocol Type Term Accession Number	OBI:0001928	OBI:0600013	ERO:0001222	NCIT:C45970
+Study Protocol Type Term Source REF	OBI	OBI	ERO	NCIT
+Study Protocol Description				
+Study Protocol URI	""	""	""	""
+Study Protocol Version				
+Study Protocol Parameters Name	""	""	""	deidentication standard
+Study Protocol Parameters Name Term Accession Number	""	""	""	""
+Study Protocol Parameters Name Term Source REF	""	""	""	""
+Study Protocol Components Name	""	""	""	""
+Study Protocol Components Type	""	""	""	""
+Study Protocol Components Type Term Accession Number	""	""	""	""
+Study Protocol Components Type Term Source REF	""	""	""	""
+STUDY CONTACTS
+Study Person Last Name
+Study Person First Name
+Study Person Mid Initials
+Study Person Email
+Study Person Phone
+Study Person Fax
+Study Person Address
+Study Person Affiliation
+Study Person Roles
+Study Person Roles Term Accession Number
+Study Person Roles Term Source REF
+Comment[Study Person ORCID]
+Comment[Funder]
+Comment[FundRef ID]
+Comment[Funder Term Source REF]
+Comment[Grant Identifier]

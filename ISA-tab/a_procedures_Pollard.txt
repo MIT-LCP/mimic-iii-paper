@@ -1,0 +1,2 @@
+Sample Name	Protocol REF	Protocol REF	Parameter Value[deidentication standard]	Assay Name	Comment[description]	Raw Data File	Comment [Data Repository]	Comment [Data Record Accession]	Comment [Data Record URI]
+Procedures	Database development	Deidentification	Health Insurance Portability and Accountability Act (HIPAA)	PROCEDUREEVENTS_MV	 Patient procedures for the subset of patients who were monitored in the ICU using the iMDSoft MetaVision system.		PhysioNet	doi:10.13026/C2XW26	http://dx.doi.org/10.13026/C2XW26
